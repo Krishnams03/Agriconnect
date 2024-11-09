@@ -338,7 +338,7 @@ function FeatureCard({ icon, title, description, link, buttonText }) {
               className="w-full bg-green-600 text-white hover:bg-green-500 px-6 py-2 rounded-full transition-colors duration-300"
             >
               <Link href={link}>
-                {buttonText} <ArrowRight className="ml-2 h-4 w-4" />
+                {buttonText} <ArrowRight className="ml-10 h-4 w-4" />
               </Link>
             </Button>
           </motion.div>
