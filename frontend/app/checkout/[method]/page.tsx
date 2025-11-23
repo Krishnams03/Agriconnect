@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input";
 
 export default function PaymentForm() {
   const router = useRouter();
-  const { method } = useParams<{ method: string }>();
+  const params = useParams<{ method: string }>();
+  const method = params?.method ?? "credit";
 
   const [cardNumber, setCardNumber] = useState("");
   const [expiryDate, setExpiryDate] = useState("");
@@ -36,7 +37,7 @@ export default function PaymentForm() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
-      <h1 className="text-2xl font-bold mb-4">Pay with {method === "debit" ? "Debit" : "Credit"} Card</h1>
+  <h1 className="text-2xl font-bold mb-4">Pay with {method === "debit" ? "Debit" : "Credit"} Card</h1>
       <div className="w-full max-w-md space-y-4">
         <Input
           placeholder="Card Number"

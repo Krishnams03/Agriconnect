@@ -8,7 +8,7 @@ import { toast } from "@/components/ui/toast";
 import { useRouter } from "next/navigation";
 import { Leaf } from "lucide-react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { getUserInfo, isAuthenticated, UserInfo } from "@/app/utils/auth";
 
 // Address form interface
 interface Address {
@@ -29,15 +29,19 @@ export default function Address() {
     });
 
     const [isLoading, setIsLoading] = useState(false);
+    const [userInfo, setUserInfo] = useState<UserInfo | null>(null);
     const router = useRouter();
-    const { data: session } = useSession(); // Get user session
 
     // Check if the user is logged in and has a session
     useEffect(() => {
-        if (!session) {
-            router.push("/login"); // Redirect to login if not logged in
+        const authenticated = isAuthenticated();
+        if (!authenticated) {
+            router.push("/log-in");
+            return;
         }
-    }, [session, router]);
+
+        setUserInfo(getUserInfo());
+    }, [router]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -51,12 +55,13 @@ export default function Address() {
         e.preventDefault();
         setIsLoading(true);
 
-        if (!session) {
+        if (!userInfo) {
             toast({
                 title: "Error",
                 description: "You must be logged in to save an address.",
                 variant: "destructive",
             });
+            setIsLoading(false);
             return;
         }
 
@@ -64,7 +69,7 @@ export default function Address() {
             // Add username to the address data
             const addressWithUser = {
                 ...address,
-                username: session.user?.name || "", // Assuming session has the user's name
+                username: userInfo.name || userInfo.username || userInfo.email || "",
             };
 
             // Save address to MongoDB via API
@@ -84,7 +89,7 @@ export default function Address() {
             toast({
                 title: "Address Saved",
                 description: "Your address has been saved successfully.",
-                variant: "default",
+                variant: "success",
             });
         } catch (error: any) {
             toast({

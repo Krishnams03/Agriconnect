@@ -1,13 +1,21 @@
 "use client";
 
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/toast";
 
 export default function CardDetailsPage() {
+  return (
+    <Suspense fallback={<div className="flex min-h-screen items-center justify-center">Loading...</div>}>
+      <CardDetailsContent />
+    </Suspense>
+  );
+}
+
+function CardDetailsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [cardType, setCardType] = useState<string | null>(null);
@@ -18,6 +26,8 @@ export default function CardDetailsPage() {
   });
 
   useEffect(() => {
+    if (!searchParams) return;
+
     const type = searchParams.get("type");
     if (!type) {
       router.push("/payment/select-card");

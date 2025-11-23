@@ -29,7 +29,7 @@ export interface CartItem extends Product {
   quantity: number;
 }
 
-export const products: Product[] = [
+const products: Product[] = [
   {
     id: 1,
     name: "Organic Tomatoes",
@@ -319,13 +319,6 @@ export default function Marketplace() {
     });
   };
 
-  // Filter products
-  const filteredProducts = products.filter((product) => {
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesType = filterType === "all" || product.type === filterType;
-    return matchesSearch && matchesType;
-  });
-
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   if (loading) {
     return <Loader />;
@@ -428,7 +421,7 @@ export default function Marketplace() {
               </CardContent>
               <CardFooter className="p-4">
                 <Button
-                  onClick={() => addToCart(product)}
+                  onClick={() => addToCart(product.id)}
                   className="w-full bg-green-600 hover:bg-green-700 text-white"
                 >
                   Add to Cart

@@ -50,7 +50,7 @@ export default function Login() {
         return;
       }
 
-      saveUserSession(email, response.data.token, 3600);
+  saveUserSession(email, response.data.token, 3600, email);
       router.push("/");
     } catch (err: any) {
       const message =

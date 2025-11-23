@@ -8,9 +8,15 @@ const TOKEN_EXPIRY_KEY = "token_expiry";
 /* --------------------------------------
    1. SAVE SESSION AND USER INFO
 -------------------------------------- */
-export const saveUserSession = (username: string, token: string, expiryTime?: number) => {
+export const saveUserSession = (
+  username: string,
+  token: string,
+  expiryTime?: number,
+  email?: string
+) => {
   const sessionData = {
     username,
+    email: email || username,
     createdAt: new Date().toISOString(),
   };
 
@@ -80,10 +86,24 @@ export const clearUserSession = () => {
 /* --------------------------------------
    5. GET USER INFO
 -------------------------------------- */
-export const getUserInfo = () => {
+export interface UserInfo {
+  username?: string;
+  email?: string;
+  name?: string;
+}
+
+export const getUserInfo = (): UserInfo | null => {
   const session = getUserSession();
   if (session) {
-    return session.username ? { username: session.username } : null;
+    if (session.username || session.email) {
+      const name = session.username || session.email;
+      return {
+        username: session.username,
+        email: session.email,
+        name,
+      };
+    }
+    return null;
   }
   return null;
 };
@@ -113,4 +133,39 @@ export const extendSession = (extraTimeInSeconds: number) => {
     localStorage.setItem(TOKEN_EXPIRY_KEY, newExpiryTime.toString());
     console.log(`Session extended by ${extraTimeInSeconds} seconds.`);
   }
+};
+
+/* --------------------------------------
+   8. UPDATE SESSION DATA
+-------------------------------------- */
+interface SessionUpdate {
+  username?: string;
+  email?: string;
+  token?: string;
+}
+
+export const updateUserSession = (updates: SessionUpdate) => {
+  if (typeof window === "undefined") return;
+
+  const existing = getUserSession();
+  if (!existing) return;
+
+  const nextSession = {
+    ...existing,
+    ...('username' in updates ? { username: updates.username } : {}),
+    ...('email' in updates ? { email: updates.email } : {}),
+  };
+
+  localStorage.setItem(SESSION_KEY, JSON.stringify(nextSession));
+
+  if (updates.token) {
+    localStorage.setItem(AUTH_TOKEN_KEY, updates.token);
+  }
+};
+
+/* --------------------------------------
+   9. DELETE ACCOUNT (LOCAL SESSION CLEAR)
+-------------------------------------- */
+export const deleteUserAccount = () => {
+  clearUserSession();
 };

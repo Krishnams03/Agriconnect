@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import mongoose from "mongoose";
-import Order from "../../backend/models/Order"; // Corrected import path
+import Order from "@/lib/models/Order";
 
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/agriconnect";
 

@@ -1,7 +1,7 @@
 // pages/api/discussions/index.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import dbConnect from '@/lib/mongodb';
-import Discussion from '@/backend/models/Discussion';
+import Discussion from '@/lib/models/Discussion';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   await dbConnect();

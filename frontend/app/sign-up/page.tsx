@@ -63,7 +63,7 @@ export default function SignUp() {
       });
 
       if (response.data.token) {
-        saveUserSession(fullName || email, response.data.token, 3600);
+  saveUserSession(fullName || email, response.data.token, 3600, email);
         router.push("/");
         return;
       }

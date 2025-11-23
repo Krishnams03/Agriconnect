@@ -29,7 +29,7 @@ export interface CartItem extends Product {
   quantity: number;
 }
 
-export const products: Product[] = [
+const products: Product[] = [
     {
         id: 1,
         name: "Organic Tomatoes",
