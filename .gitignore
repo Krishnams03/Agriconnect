@@ -1,0 +1,124 @@
+# -----------------------------
+# Global
+# -----------------------------
+.DS_Store
+Thumbs.db
+.desktop
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Local env & secrets
+.env
+.env.*
+*.env
+.envrc
+*.key
+*.pem
+env.zip
+
+# Git merge / patch artifacts
+*.orig
+*.rej
+
+# -----------------------------
+# Node / Next.js (frontend + backend)
+# -----------------------------
+node_modules/
+.npm/
+.pnp/
+.pnp.js
+.cache/
+.next/
+.next-static/
+.next-tmp/
+out/
+.turbo/
+.vercel/
+
+# -----------------------------
+# Frontend
+# -----------------------------
+frontend/.next/
+frontend/out/
+frontend/.turbo/
+frontend/.vercel/
+frontend/node_modules/
+frontend/public/uploads/
+
+# -----------------------------
+# Backend (Node + Python)
+# -----------------------------
+backend/node_modules/
+backend/uploads/
+backend/.env
+backend/.env.*
+backend/env/
+backend/.venv/
+backend/venv/
+backend/__pycache__/
+backend/**/*.py[cod]
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/.coverage
+backend/coverage/
+backend/.cache/
+backend/build/
+backend/dist/
+backend/.DS_Store
+backend/*.sqlite3
+backend/*.db
+
+# Python virtual envs anywhere
+.venv/
+venv/
+env/
+ENV/
+
+# Compiled, caches & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+*.pyc
+*.so
+.mypy_cache/
+.pytest_cache/
+coverage/
+htmlcov/
+.cache/
+.eggs/
+*.egg-info/
+.eggs/
+.tox/
+
+# Build outputs
+build/
+dist/
+.tmp/
+.temp/
+.sass-cache/
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+*.iml
+
+# System-specific
+Desktop.ini
+$RECYCLE.BIN/
+
+# Misc
+uploads/
+.temp/
+logs/

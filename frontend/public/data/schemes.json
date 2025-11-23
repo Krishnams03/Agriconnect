@@ -1,0 +1,2008 @@
+{
+    "schemes": {
+        "national": [
+            {
+                "name": "Pradhan Mantri Krishi Sinchayee Yojana",
+                "objective": "To enhance irrigation facilities and increase the area under irrigation.",
+                "details": "The scheme aims to provide irrigation to every farm in India through the creation of irrigation infrastructure such as dams, canals, and tanks.",
+                "funding": "Government of India",
+                "eligibility": "Farmers and agricultural institutions with irrigation needs.",
+                "apply_link": "https://pmksy.gov.in/"
+              },
+              {
+                "name": "Soil Health Management Scheme",
+                "objective": "To improve soil health through the use of organic and green fertilizers.",
+                "details": "This scheme promotes soil testing, development of organic farming, and effective fertilizer management.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, agricultural extension agencies, and state governments.",
+                "apply_link": "https://soilhealth.dac.gov.in/"
+              },
+              {
+                "name": "National Mission on Agricultural Extension and Technology",
+                "objective": "To promote the use of technology in agricultural practices and improve the extension services for farmers.",
+                "details": "This mission aims to provide technology-driven solutions to farmers for increasing productivity, including modern practices for soil health, pest control, and crop management.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, agricultural extension workers, and state governments.",
+                "apply_link": "https://www.dac.gov.in/department/agricultural-extension"
+              },
+              {
+                "name": "Fertilizer Subsidy Scheme",
+                "objective": "To make fertilizers affordable for farmers by providing subsidies.",
+                "details": "The government provides subsidies on chemical fertilizers to reduce the cost burden on farmers.",
+                "funding": "Government of India",
+                "eligibility": "Farmers using fertilizers for crop production.",
+                "apply_link": "https://fert.nic.in/"
+              },
+              {
+                "name": "National Agroforestry Policy",
+                "objective": "To promote agroforestry for enhancing soil fertility and increasing plant diversity.",
+                "details": "This policy aims to integrate trees into agricultural landscapes for sustainable agriculture and biodiversity conservation.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, state governments, and agroforestry practitioners.",
+                "apply_link": "https://agriculture.gov.in/"
+              },
+              {
+                "name": "Pradhan Mantri Fasal Bima Yojana",
+                "objective": "To provide insurance coverage to farmers against crop loss due to natural calamities.",
+                "details": "This scheme ensures financial support for farmers in case of crop failure due to adverse weather conditions or diseases.",
+                "funding": "Government of India",
+                "eligibility": "Farmers growing notified crops.",
+                "apply_link": "https://pmfby.gov.in/"
+              },
+              {
+                "name": "Rashtriya Krishi Vikas Yojana",
+                "objective": "To promote and support agricultural development in all states and Union Territories.",
+                "details": "This scheme aims to enhance the growth rate of the agricultural sector by promoting modern techniques, better crop varieties, and efficient resource use.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, state governments, and agricultural institutions.",
+                "apply_link": "https://rkvy.nic.in/"
+              },
+              {
+                "name": "Kisan Credit Card Scheme",
+                "objective": "To provide easy access to credit for farmers.",
+                "details": "The scheme offers financial support to farmers for agricultural inputs like fertilizers, seeds, and pesticides through easy loans.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, including individual farmers, groups of farmers, and joint farmers.",
+                "apply_link": "https://www.pnbindia.in/Kisan-Credit-Card.html"
+              },
+              {
+                "name": "Pradhan Mantri Matsya Sampada Yojana",
+                "objective": "To support the fisheries sector and improve the livelihood of fishermen.",
+                "details": "This scheme focuses on sustainable aquaculture and the development of inland and marine fisheries.",
+                "funding": "Government of India",
+                "eligibility": "Fishermen, fish farmers, and fishery cooperatives.",
+                "apply_link": "https://www.nfdb.gov.in/"
+              },
+              {
+                "name": "National Horticulture Mission",
+                "objective": "To promote horticultural production, improve quality, and increase export opportunities.",
+                "details": "The mission focuses on the cultivation of fruits, vegetables, and flowers while enhancing post-harvest infrastructure and promoting organic farming.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, cooperatives, and state horticulture departments.",
+                "apply_link": "https://nhm.nic.in/"
+              },
+              {
+                "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+                "objective": "To provide direct income support to farmers.",
+                "details": "Under this scheme, farmers are given an income of ₹6,000 per year in three equal installments to support their livelihood and agricultural activities.",
+                "funding": "Government of India",
+                "eligibility": "Small and marginal farmers.",
+                "apply_link": "https://pmkisan.gov.in/"
+              },
+              {
+                "name": "Zero Budget Natural Farming",
+                "objective": "To promote farming without the use of chemical fertilizers and pesticides.",
+                "details": "This initiative encourages organic farming practices, focusing on natural inputs and soil health improvement.",
+                "funding": "State Governments",
+                "eligibility": "Farmers interested in adopting natural farming methods.",
+                "apply_link": "https://www.nabard.org/"
+              },
+              {
+                "name": "National Food Security Mission",
+                "objective": "To increase the production of food grains, pulses, and oilseeds.",
+                "details": "The mission focuses on improving the productivity of crops and ensuring food security in the country.",
+                "funding": "Government of India",
+                "eligibility": "Farmers and agricultural institutions.",
+                "apply_link": "https://nfsm.gov.in/"
+              },
+              {
+                "name": "Bharat Nirman Yojana",
+                "objective": "To improve rural infrastructure and enhance agricultural productivity.",
+                "details": "The scheme focuses on improving irrigation, rural roads, and electrification to facilitate agricultural growth.",
+                "funding": "Government of India",
+                "eligibility": "Rural areas, including farmers and agricultural businesses.",
+                "apply_link": "https://www.bharatnirman.gov.in/"
+              },
+              {
+                "name": "Crop Diversification Programme",
+                "objective": "To promote crop diversification in water-stressed areas.",
+                "details": "This program encourages farmers to move from water-intensive crops to crops requiring less water, ensuring long-term sustainability.",
+                "funding": "State Governments",
+                "eligibility": "Farmers in water-stressed regions.",
+                "apply_link": "https://www.agriculture.gov.in/"
+              },
+              {
+                "name": "National Mission for Sustainable Agriculture",
+                "objective": "To promote sustainable agricultural practices and improve soil health.",
+                "details": "This mission aims to introduce practices that help maintain and improve soil fertility while reducing the environmental footprint of agriculture.",
+                "funding": "Government of India",
+                "eligibility": "Farmers and agricultural institutions.",
+                "apply_link": "https://nmsa.gov.in/"
+              },
+              {
+                "name": "Mission Organic Value Chain Development for North Eastern Region",
+                "objective": "To promote organic farming and the development of organic value chains.",
+                "details": "This scheme focuses on the development of organic farming in the northeastern states of India and establishing a value chain for organic produce.",
+                "funding": "Government of India",
+                "eligibility": "Farmers in North Eastern states of India interested in organic farming.",
+                "apply_link": "https://www.north-easternregion.gov.in/"
+              },
+              {
+                "name": "Sub-Mission on Plant Protection and Plant Quarantine",
+                "objective": "To safeguard crops from plant diseases and pests.",
+                "details": "The mission works on implementing pest control measures and ensuring the health of plants and crops throughout India.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, state governments, and agricultural research institutions.",
+                "apply_link": "https://plantquarantineindia.gov.in/"
+              },
+              {
+                "name": "National Crop Insurance Scheme",
+                "objective": "To provide insurance coverage for crop losses due to natural disasters.",
+                "details": "This scheme aims to protect farmers from financial losses arising from crop damage due to weather changes, pest attacks, or diseases.",
+                "funding": "Government of India",
+                "eligibility": "Farmers growing notified crops.",
+                "apply_link": "https://www.agri-insurance.gov.in/"
+              },
+              {
+                "name": "National Agricultural Market (eNAM)",
+                "objective": "To promote the online marketing of agricultural products and ensure transparent trading.",
+                "details": "eNAM aims to create a unified national market for agricultural commodities by connecting agricultural markets across India through an online platform.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, traders, and commission agents.",
+                "apply_link": "https://enam.gov.in/"
+              },
+              {
+                "name": "Pradhan Mantri Kisan Maandhan Yojana",
+                "objective": "To provide pension benefits to small and marginal farmers.",
+                "details": "Under this scheme, farmers between the age of 18 and 40 will receive a monthly pension after reaching the age of 60, subject to certain conditions.",
+                "funding": "Government of India",
+                "eligibility": "Small and marginal farmers between the age of 18 to 40 years.",
+                "apply_link": "https://pmkmy.gov.in/"
+              },
+              {
+                "name": "National Mission on Protein Supplements",
+                "objective": "To promote protein-rich food production and increase livestock farming.",
+                "details": "The scheme focuses on increasing the availability of protein-rich foods like pulses, oilseeds, and animal husbandry products.",
+                "funding": "Government of India",
+                "eligibility": "Farmers involved in animal husbandry, poultry, and fisheries.",
+                "apply_link": "https://www.dahd.nic.in/"
+              },
+              {
+                "name": "National Bee Keeping and Honey Mission",
+                "objective": "To promote beekeeping and honey production to enhance income generation and pollination.",
+                "details": "The mission aims to improve the production of honey and increase the quality of bee products while promoting pollination activities.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, beekeepers, and agricultural organizations.",
+                "apply_link": "https://nbhm.gov.in/"
+              },
+              {
+                "name": "Integrated Scheme on Agricultural Marketing",
+                "objective": "To improve the marketing infrastructure and promote agricultural markets in rural areas.",
+                "details": "The scheme focuses on upgrading market infrastructure and providing training to farmers for better marketing of their produce.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, agricultural cooperatives, and market committees.",
+                "apply_link": "https://agricoop.nic.in/"
+              },
+              {
+                "name": "State Horticulture Missions",
+                "objective": "To promote horticulture and ensure the supply of quality fruits and vegetables.",
+                "details": "The scheme supports the production of fruits, vegetables, and flowers through financial support and the development of infrastructure.",
+                "funding": "State Governments",
+                "eligibility": "Farmers and horticulture institutions.",
+                "apply_link": "https://nhm.nic.in/"
+              },
+              {
+                "name": "Promotion of Organic Farming",
+                "objective": "To encourage organic farming practices for sustainable agriculture.",
+                "details": "The scheme supports organic farming through certification, training, and marketing of organic products.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, agricultural groups, and cooperatives.",
+                "apply_link": "https://aajeevika.gov.in/"
+              },
+              {
+                "name": "Micro Irrigation Scheme",
+                "objective": "To promote efficient water use through micro-irrigation techniques like drip and sprinkler systems.",
+                "details": "The scheme aims to conserve water and improve crop yields by promoting the adoption of micro-irrigation technologies.",
+                "funding": "Government of India",
+                "eligibility": "Farmers who wish to adopt micro-irrigation methods.",
+                "apply_link": "https://pmksy.gov.in/"
+              },
+              {
+                "name": "Mission on Climate Resilient Agriculture",
+                "objective": "To promote climate-resilient agricultural practices to mitigate the effects of climate change.",
+                "details": "This mission aims to help farmers adapt to climate variability and reduce their vulnerability to climate-related risks.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, agricultural scientists, and climate change experts.",
+                "apply_link": "https://www.icrisat.org/"
+              },
+              {
+                "name": "Kisan Rinn Yojana (Kisan Credit Scheme)",
+                "objective": "To provide farmers with easy access to credit for farming activities.",
+                "details": "This scheme offers affordable credit to farmers for purchasing inputs, technology, and equipment for agriculture.",
+                "funding": "Government of India and Banks",
+                "eligibility": "Farmers, both individuals and joint groups.",
+                "apply_link": "https://www.rbi.org.in/"
+              },
+              {
+                "name": "Pradhan Mantri Swasthya Suraksha Yojana",
+                "objective": "To provide healthcare to rural farmers and ensure better health services.",
+                "details": "This scheme ensures access to affordable and quality healthcare services to farmers and their families.",
+                "funding": "Government of India",
+                "eligibility": "Farmers and rural communities.",
+                "apply_link": "https://pmssy-mohfw.nic.in/"
+              },
+              {
+                "name": "National Watershed Management Project",
+                "objective": "To ensure sustainable water management and increase water availability for agriculture.",
+                "details": "The project works on watershed development activities to improve water use efficiency and ensure better resource management.",
+                "funding": "Government of India and State Governments",
+                "eligibility": "Farmers, rural communities, and watershed development authorities.",
+                "apply_link": "https://www.nwm.gov.in/"
+              },
+              {
+                "name": "Bamboo and Rattan Development Scheme",
+                "objective": "To promote the development and commercialization of bamboo and rattan products.",
+                "details": "The scheme aims to enhance the value chain for bamboo and rattan cultivation and create livelihood opportunities in rural areas.",
+                "funding": "Government of India",
+                "eligibility": "Farmers, bamboo growers, and rural artisans.",
+                "apply_link": "https://www.bamboo.gov.in/"
+              },
+              {
+                "name": "Pradhan Mantri Jan Arogya Yojana (PMJAY)",
+                "objective": "To provide health insurance coverage for economically weaker farmers.",
+                "details": "The scheme provides health insurance to families, covering hospitalization costs and medical expenses for farmers and their families.",
+                "funding": "Government of India",
+                "eligibility": "Farmers and economically weaker sections of society.",
+                "apply_link": "https://pmjay.gov.in/"
+              },
+              {
+                "name": "Agri-Tech Infrastructure Fund",
+                "objective": "To improve the technological infrastructure in agriculture.",
+                "details": "This fund supports the development and implementation of technology solutions to increase agricultural productivity and sustainability.",
+                "funding": "Government of India",
+                "eligibility": "Agricultural startups, institutions, and farmers.",
+                "apply_link": "https://www.nabard.org/"
+              }
+        ],
+        "state": {
+            "Maharashtra": [
+    {
+        "name": "Mahatma Jyotirao Phule Jan Arogya Yojana",
+        "description": "Health insurance scheme for families below the poverty line in Maharashtra.",
+        "eligibility": "Residents of Maharashtra holding yellow or orange ration cards.",
+        "apply_link": "https://jeevandayee.gov.in/"
+    },
+   
+    {
+        "name": "Ekatmik Sheti Vikas Yojana",
+        "description": "Focuses on integrated agricultural development for farmers.",
+        "eligibility": "Farmers in Maharashtra.",
+        "apply_link": "https://maharashtra.gov.in/"
+    },
+    {
+        "name": "Pik Vima Yojana",
+        "description": "Crop insurance scheme to protect farmers against crop loss.",
+        "eligibility": "Farmers growing insured crops.",
+        "apply_link": "https://www.pikvima.gov.in/"
+    },
+    {
+        "name": "Chief Minister Sustainable Agriculture Irrigation Scheme (Magel Tyala Shettale)",
+        "description": "Provides financial assistance to farmers for constructing farm ponds to store rainwater, enhancing irrigation facilities.",
+        "eligibility": "Farmers with a minimum of 0.20 hectares in Konkan region or 0.40 hectares in other regions.",
+        "apply_link": "https://www.maharashtra.gov.in/magel-tyala-shettale"
+    },
+    {
+        "name": "Maha Krishi Samrudhi Yojana (MKSY)",
+        "description": "Promotes agricultural development by supporting food and agro-based industries and agricultural infrastructure projects.",
+        "eligibility": "Farmers and entrepreneurs involved in agricultural projects.",
+        "apply_link": "https://bankofmaharashtra.in/maha-krishi-samrudhi-yojana"
+    },
+    {
+        "name": "Gaon Tethe Godam Scheme",
+        "description": "Aims to establish storage facilities at the village level to reduce post-harvest losses and improve market access for farmers.",
+        "eligibility": "All farmers in Maharashtra.",
+        "apply_link": "https://prsindia.org/budgets/states/maharashtra-budget-analysis-2024-25"
+    },
+    {
+        "name": "State Agriculture Mechanization Scheme",
+        "description": "Provides subsidies to farmers for purchasing agricultural machinery, enhancing productivity and reducing manual labor.",
+        "eligibility": "Farmers with Aadhaar cards and land ownership documents.",
+        "apply_link": "https://mahadbt.maharashtra.gov.in/"
+    },
+    {
+        "name": "Atal Bhujal Yojana (Maharashtra Implementation)",
+        "description": "Promotes sustainable groundwater management practices through community participation.",
+        "eligibility": "Farmers dependent on groundwater for irrigation in Maharashtra.",
+        "apply_link": "https://ataljal.gov.in/"
+    }
+],
+
+            "Tamil Nadu": [
+  
+    {
+        "name": "Chief Minister’s Comprehensive Health Insurance Scheme",
+        "description": "Free health insurance scheme for residents of Tamil Nadu.",
+        "eligibility": "Residents of Tamil Nadu with annual income below ₹72,000.",
+        "apply_link": "https://www.cmchistn.com/"
+    },
+    {
+        "name": "Solar Powered Pump Scheme",
+        "description": "Provides subsidies for installing solar pumps for irrigation.",
+        "eligibility": "Farmers in Tamil Nadu.",
+        "apply_link": "https://www.teda.in/"
+    },
+    
+    {
+        "name": "Farm Mechanization Scheme",
+        "description": "Promotes the use of modern agricultural machinery to increase productivity.",
+        "eligibility": "Farmers in Tamil Nadu with Aadhaar and land ownership.",
+        "apply_link": "https://agritech.tnau.ac.in/"
+    },
+    {
+        "name": "Construction of Farm Ponds",
+        "description": "Supports water conservation by subsidizing farm pond construction.",
+        "eligibility": "90% subsidy for general farmers, 95% for SC/ST farmers.",
+        "apply_link": "https://agritech.tnau.ac.in/"
+    },
+    {
+        "name": "Tamil Nadu Mission on Sustainable Dryland Development (TNMSDD)",
+        "description": "Enhances the productivity of dryland areas through sustainable farming practices.",
+        "eligibility": "Small and marginal farmers in arid regions of Tamil Nadu.",
+        "apply_link": "https://perambalur.nic.in/"
+    },
+    {
+        "name": "Micro Irrigation (MI) Scheme",
+        "description": "Encourages efficient water use with subsidies for drip and sprinkler irrigation systems.",
+        "eligibility": "Farmers with Aadhaar and eligible landholdings.",
+        "apply_link": "https://agritech.tnau.ac.in/"
+    },
+    {
+        "name": "Kalaignarin Anaithu Grama Orunginaindha Velan Valarchi Thittam",
+        "description": "Converts wasteland into cultivable agricultural land to expand farming areas.",
+        "eligibility": "Farmers owning wasteland in Tamil Nadu.",
+        "apply_link": "https://tn.gov.in/"
+    },
+    {
+        "name": "Perimetro Vegetable Cluster Development Program",
+        "description": "Promotes vegetable cultivation around urban areas to meet local demands.",
+        "eligibility": "Farmers near urban centers engaged in vegetable farming.",
+        "apply_link": "https://tnhorticulture.tn.gov.in/"
+    },
+    {
+        "name": "Special Scheme for Millets Production",
+        "description": "Boosts the production of millets like ragi, kambu, and samai.",
+        "eligibility": "Farmers cultivating millets in Tamil Nadu.",
+        "apply_link": "https://tn.gov.in/"
+    }
+]
+,
+           "Uttar Pradesh": [
+   
+    {
+        "name": "Kisan Rin Mochan Yojana",
+        "description": "Waives loans for small and marginal farmers in Uttar Pradesh.",
+        "eligibility": "Small and marginal farmers with loans up to ₹1 lakh.",
+        "apply_link": "https://www.upkisankarjrahat.upsdc.gov.in/"
+    },
+    {
+        "name": "One District One Product Scheme",
+        "description": "Encourages local crafts and industries in every district.",
+        "eligibility": "Entrepreneurs and artisans in Uttar Pradesh.",
+        "apply_link": "https://odopup.in/"
+    },
+   
+    {
+        "name": "Kisan Samman Nidhi Yojana (UP Implementation)",
+        "description": "Provides direct income support to farmers.",
+        "eligibility": "Small and marginal farmers owning cultivable land.",
+        "apply_link": "https://pmkisan.gov.in/"
+    },
+    {
+        "name": "UP Micro Irrigation Scheme",
+        "description": "Promotes efficient irrigation methods through subsidies for drip and sprinkler systems.",
+        "eligibility": "Farmers in Uttar Pradesh with eligible landholdings.",
+        "apply_link": "https://uphorticulture.in/"
+    },
+    {
+        "name": "UP Mukhyamantri Krishak Durghatna Kalyan Yojana",
+        "description": "Provides financial assistance to families of farmers in case of accidents.",
+        "eligibility": "Farmers and their families in Uttar Pradesh.",
+        "apply_link": "https://upagripardarshi.gov.in/"
+    },
+    {
+        "name": "National Horticulture Mission (NHM - UP Implementation)",
+        "description": "Encourages diversification into horticulture for improved productivity and income.",
+        "eligibility": "Farmers cultivating horticultural crops.",
+        "apply_link": "https://uphorticulture.in/"
+    },
+    {
+        "name": "Krishi Input Subsidy Scheme",
+        "description": "Offers subsidies on fertilizers, seeds, and pesticides to boost agricultural productivity.",
+        "eligibility": "Farmers in Uttar Pradesh.",
+        "apply_link": "https://upagripardarshi.gov.in/"
+    },
+    {
+        "name": "UP Beej Anudan Yojana",
+        "description": "Provides subsidized seeds to farmers to ensure better yields.",
+        "eligibility": "Farmers registered with the Uttar Pradesh agriculture department.",
+        "apply_link": "https://upagriculture.com/"
+    },
+    {
+        "name": "UP Organic Farming Promotion Scheme",
+        "description": "Promotes organic farming practices by providing financial assistance and training.",
+        "eligibility": "Farmers adopting organic farming techniques.",
+        "apply_link": "https://upagripardarshi.gov.in/"
+    }
+],
+
+            "Rajasthan": [
+    {
+        "name": "Mukhyamantri Jal Swavalamban Abhiyan",
+        "description": "Promotes water conservation through community participation.",
+        "eligibility": "Residents of Rajasthan involved in water conservation.",
+        "apply_link": "https://water.rajasthan.gov.in/"
+    },
+    {
+        "name": "Rajasthan Krishi Yantra Subsidy Yojana",
+        "description": "Provides subsidies for the purchase of modern agricultural machinery.",
+        "eligibility": "Farmers registered in Rajasthan.",
+        "apply_link": "https://rajasthankrishi.gov.in/"
+    },
+    {
+        "name": "Rajasthan Mukhyamantri Kisan Mitra Urja Yojana",
+        "description": "Offers financial relief on electricity bills for farmers.",
+        "eligibility": "Farmers in Rajasthan with active electricity connections.",
+        "apply_link": "https://energy.rajasthan.gov.in/"
+    },
+    {
+        "name": "Rajasthan Solar Pump Subsidy Scheme",
+        "description": "Promotes solar-powered irrigation by providing subsidies on solar pumps.",
+        "eligibility": "Farmers practicing irrigation in Rajasthan.",
+        "apply_link": "https://solar.rajasthan.gov.in/"
+    },
+    {
+        "name": "Rajiv Gandhi Jal Sanchay Yojana",
+        "description": "Focuses on rainwater harvesting and groundwater conservation.",
+        "eligibility": "Villages and urban areas in Rajasthan.",
+        "apply_link": "https://water.rajasthan.gov.in/"
+    },
+    {
+        "name": "Rajasthan Apna Khata Yojana",
+        "description": "Provides online land record access for farmers.",
+        "eligibility": "Landowners in Rajasthan.",
+        "apply_link": "https://apnakhata.rajasthan.gov.in/"
+    },
+    {
+        "name": "Rajasthan Agro Processing and Agri Business Promotion Policy",
+        "description": "Encourages setting up of agro-processing units and agri-businesses.",
+        "eligibility": "Entrepreneurs and farmers in Rajasthan.",
+        "apply_link": "https://agriculture.rajasthan.gov.in/"
+    },
+    {
+        "name": "Rajasthan Organic Farming Mission",
+        "description": "Supports organic farming practices with financial aid and training.",
+        "eligibility": "Farmers practicing organic farming in Rajasthan.",
+        "apply_link": "https://organicfarming.rajasthan.gov.in/"
+    },
+    {
+        "name": "Rajasthan Livestock Development Scheme",
+        "description": "Promotes livestock rearing and provides subsidies for animal husbandry.",
+        "eligibility": "Livestock farmers in Rajasthan.",
+        "apply_link": "https://animalhusbandry.rajasthan.gov.in/"
+    }
+]
+,
+           "Kerala": [
+   
+    {
+        "name": "Subhiksha Keralam Scheme",
+        "description": "Aims to enhance agricultural production by utilizing fallow land.",
+        "eligibility": "Farmers, self-help groups, and cooperatives in Kerala.",
+        "apply_link": "https://kerala.gov.in/subhiksha-keralam"
+    },
+    {
+        "name": "Kerala Agro Machinery Subsidy Scheme",
+        "description": "Provides subsidies for purchasing agricultural machinery and equipment.",
+        "eligibility": "Farmers in Kerala with valid land records.",
+        "apply_link": "https://agriculture.kerala.gov.in/"
+    },
+    {
+        "name": "Haritha Keralam Mission",
+        "description": "Focuses on organic farming and sustainable agricultural practices.",
+        "eligibility": "Farmers and self-help groups adopting organic farming in Kerala.",
+        "apply_link": "https://harithakeralam.kerala.gov.in/"
+    },
+    {
+        "name": "Ksheera Sagaram Project",
+        "description": "Promotes dairy farming by providing financial assistance and training.",
+        "eligibility": "Dairy farmers in Kerala.",
+        "apply_link": "https://keralaagriculture.gov.in/"
+    },
+    {
+        "name": "Vikasana Karshaka Scheme",
+        "description": "Supports the cultivation of high-value crops and modern farming methods.",
+        "eligibility": "Farmers registered with the agriculture department in Kerala.",
+        "apply_link": "https://keralaagriculture.gov.in/"
+    },
+    {
+        "name": "Kerala Vegetable Development Program",
+        "description": "Encourages vegetable cultivation and provides subsidies for seeds and fertilizers.",
+        "eligibility": "Farmers and cooperatives involved in vegetable farming in Kerala.",
+        "apply_link": "https://keralaagriculture.gov.in/"
+    },
+    {
+        "name": "Jaiva Keralam Project",
+        "description": "Promotes organic farming and sustainable agricultural practices.",
+        "eligibility": "Farmers practicing organic farming methods in Kerala.",
+        "apply_link": "https://agriculture.kerala.gov.in/"
+    },
+    {
+        "name": "Plantation Development Scheme",
+        "description": "Supports the development and expansion of plantation crops like rubber, tea, and coffee.",
+        "eligibility": "Plantation owners and farmers in Kerala.",
+        "apply_link": "https://kerala.gov.in/"
+    },
+    {
+        "name": "Micro Irrigation Scheme (Kerala)",
+        "description": "Encourages water conservation through subsidies for drip and sprinkler irrigation systems.",
+        "eligibility": "Farmers in Kerala with eligible landholdings.",
+        "apply_link": "https://keralaagriculture.gov.in/"
+    },
+    {
+        "name": "Soil Health Management Scheme",
+        "description": "Promotes soil testing and provides recommendations for improving soil fertility.",
+        "eligibility": "Farmers in Kerala with agricultural land.",
+        "apply_link": "https://keralaagriculture.gov.in/"
+    }
+],
+
+           "Jharkhand": [
+    {
+        "name": "Mukhyamantri Krishi Ashirwad Yojana",
+        "description": "Provides financial assistance to small and marginal farmers for agriculture.",
+        "eligibility": "Small and marginal farmers in Jharkhand with landholdings up to 5 acres.",
+        "apply_link": "https://www.jharkhand.gov.in/"
+    },
+    {
+        "name": "Johar Yojana",
+        "description": "Aims to improve rural livelihoods through agricultural and allied activities.",
+        "eligibility": "Rural households in Jharkhand engaged in agriculture.",
+        "apply_link": "https://johar.jharkhand.gov.in/"
+    },
+    {
+        "name": "Birsa Harit Gram Yojana",
+        "description": "Promotes tree plantation and agroforestry to enhance rural livelihoods.",
+        "eligibility": "Farmers and rural households in Jharkhand.",
+        "apply_link": "https://www.jharkhand.gov.in/"
+    },
+    {
+        "name": "Soil Health Card Scheme (Jharkhand Implementation)",
+        "description": "Provides soil health cards with recommendations to improve fertility.",
+        "eligibility": "Farmers with agricultural land in Jharkhand.",
+        "apply_link": "https://soilhealth.dac.gov.in/"
+    },
+    {
+        "name": "Jharkhand Krishi Mitra Yojana",
+        "description": "Supports farmers with technical knowledge and tools for modern farming.",
+        "eligibility": "Farmers in Jharkhand registered with agriculture departments.",
+        "apply_link": "https://agriculture.jharkhand.gov.in/"
+    },
+    {
+        "name": "Jharkhand Micro Irrigation Scheme",
+        "description": "Promotes drip and sprinkler irrigation systems for water conservation.",
+        "eligibility": "Farmers with eligible landholdings in Jharkhand.",
+        "apply_link": "https://www.jharkhand.gov.in/"
+    },
+    {
+        "name": "Organic Farming Promotion Scheme",
+        "description": "Encourages organic farming practices with financial aid and training.",
+        "eligibility": "Farmers practicing or transitioning to organic farming in Jharkhand.",
+        "apply_link": "https://www.jharkhand.gov.in/"
+    },
+    {
+        "name": "Seed Distribution Subsidy Scheme",
+        "description": "Provides high-quality seeds at subsidized rates to farmers.",
+        "eligibility": "Farmers registered under Jharkhand agriculture schemes.",
+        "apply_link": "https://agriculture.jharkhand.gov.in/"
+    },
+    {
+        "name": "Drought Relief Assistance Scheme",
+        "description": "Offers financial assistance to farmers affected by drought.",
+        "eligibility": "Farmers in drought-affected regions of Jharkhand.",
+        "apply_link": "https://www.jharkhand.gov.in/"
+    },
+    {
+        "name": "Jharkhand Horticulture Development Scheme",
+        "description": "Supports horticultural crop cultivation with subsidies and training.",
+        "eligibility": "Farmers cultivating horticultural crops in Jharkhand.",
+        "apply_link": "https://www.jharkhand.gov.in/"
+    },
+    {
+        "name": "Agricultural Equipment Subsidy Scheme",
+        "description": "Provides subsidies for purchasing modern agricultural machinery.",
+        "eligibility": "Farmers registered under Jharkhand agriculture programs.",
+        "apply_link": "https://www.jharkhand.gov.in/"
+    }
+],
+
+           "Karnataka": [
+    {
+        "name": "Raita Vidya Nidhi Scheme",
+        "description": "Scholarship program for children of farmers in Karnataka.",
+        "eligibility": "Children of farmers studying in Karnataka.",
+        "apply_link": "https://raitamitra.karnataka.gov.in/"
+    },
+    {
+        "name": "Krishi Bhagya Scheme",
+        "description": "Provides financial assistance for constructing farm ponds and adopting water conservation practices.",
+        "eligibility": "Farmers in rain-fed areas of Karnataka.",
+        "apply_link": "https://www.karnataka.gov.in/"
+    },
+    {
+        "name": "Suvarna Bhoomi Yojana",
+        "description": "Encourages organic farming practices and sustainable agriculture.",
+        "eligibility": "Farmers transitioning to organic farming in Karnataka.",
+        "apply_link": "https://raitamitra.karnataka.gov.in/"
+    },
+    {
+        "name": "Micro Irrigation Scheme (Karnataka)",
+        "description": "Supports drip and sprinkler irrigation systems to improve water efficiency.",
+        "eligibility": "Farmers with eligible landholdings in Karnataka.",
+        "apply_link": "https://horticulturedir.karnataka.gov.in/"
+    },
+    {
+        "name": "Karnataka Raitha Suraksha Pradhan Mantri Fasal Bima Yojana",
+        "description": "Crop insurance scheme to protect farmers against crop loss.",
+        "eligibility": "Farmers growing insured crops in Karnataka.",
+        "apply_link": "https://pmfby.karnataka.gov.in/"
+    },
+    {
+        "name": "Bhoochetana Scheme",
+        "description": "Improves soil health and productivity through micronutrient application.",
+        "eligibility": "Farmers with agricultural land in Karnataka.",
+        "apply_link": "https://raitamitra.karnataka.gov.in/"
+    },
+    {
+        "name": "Raitha Siri Scheme",
+        "description": "Provides financial assistance for cultivating millets to promote nutrition security.",
+        "eligibility": "Farmers cultivating millets in Karnataka.",
+        "apply_link": "https://raitamitra.karnataka.gov.in/"
+    },
+    {
+        "name": "Farm Machinery Subsidy Scheme",
+        "description": "Offers subsidies for purchasing modern agricultural machinery.",
+        "eligibility": "Farmers registered in Karnataka.",
+        "apply_link": "https://agri.karnataka.gov.in/"
+    },
+    {
+        "name": "Organic Farming Policy Support Scheme",
+        "description": "Promotes organic farming with financial incentives and training.",
+        "eligibility": "Farmers practicing organic farming in Karnataka.",
+        "apply_link": "https://raitamitra.karnataka.gov.in/"
+    },
+    {
+        "name": "Karnataka Horticulture Development Scheme",
+        "description": "Supports the cultivation of horticultural crops through subsidies and technical support.",
+        "eligibility": "Farmers cultivating horticultural crops in Karnataka.",
+        "apply_link": "https://horticulturedir.karnataka.gov.in/"
+    },
+    {
+        "name": "Raitha Mitra Yojana",
+        "description": "Provides comprehensive support to farmers, including financial assistance and resources.",
+        "eligibility": "Farmers registered under Karnataka's agriculture programs.",
+        "apply_link": "https://raitamitra.karnataka.gov.in/"
+    }
+]
+,
+           "Madhya Pradesh": [
+    {
+        "name": "Ladli Laxmi Yojana",
+        "description": "Encourages the education and welfare of girl children in Madhya Pradesh.",
+        "apply_link": "https://ladlilaxmi.mp.gov.in/"
+    },
+    {
+        "name": "Mukhyamantri Kisan Kalyan Yojana",
+        "description": "Provides financial aid to farmers for agricultural purposes.",
+        "eligibility": "Farmers residing in Madhya Pradesh.",
+        "apply_link": "https://www.mp.gov.in/"
+    },
+    {
+        "name": "Bhavantar Bhugtan Yojana",
+        "description": "Provides compensation to farmers for price differences between MSP and market rates.",
+        "eligibility": "Farmers selling notified crops in Madhya Pradesh.",
+        "apply_link": "https://mpmandiboard.gov.in/"
+    },
+    {
+        "name": "Krishak Udhyami Yojana",
+        "description": "Offers financial assistance for setting up agri-based industries.",
+        "eligibility": "Farmers and agricultural entrepreneurs in Madhya Pradesh.",
+        "apply_link": "https://mpkrishi.mp.gov.in/"
+    },
+    {
+        "name": "MP Soil Health Card Scheme",
+        "description": "Promotes soil testing and provides recommendations to improve soil fertility.",
+        "eligibility": "Farmers with agricultural land in Madhya Pradesh.",
+        "apply_link": "https://soilhealth.dac.gov.in/"
+    },
+    {
+        "name": "Mukhyamantri Solar Pump Yojana",
+        "description": "Subsidizes solar pumps for irrigation to reduce dependency on diesel and electricity.",
+        "eligibility": "Farmers with small and medium landholdings.",
+        "apply_link": "https://www.mp.gov.in/"
+    },
+    {
+        "name": "Gramin Krishi Mausam Seva",
+        "description": "Provides weather-related agricultural advice to farmers.",
+        "eligibility": "Farmers registered with the agriculture department.",
+        "apply_link": "https://mpkrishi.mp.gov.in/"
+    },
+    {
+        "name": "Horticulture Development Scheme",
+        "description": "Supports the cultivation of horticultural crops with financial and technical assistance.",
+        "eligibility": "Farmers growing fruits, vegetables, and spices in Madhya Pradesh.",
+        "apply_link": "https://horticulture.mp.gov.in/"
+    },
+    {
+        "name": "MP Farm Mechanization Scheme",
+        "description": "Offers subsidies for purchasing modern agricultural machinery.",
+        "eligibility": "Farmers registered under Madhya Pradesh's agriculture programs.",
+        "apply_link": "https://mpkrishi.mp.gov.in/"
+    },
+    {
+        "name": "Organic Farming Promotion Scheme",
+        "description": "Encourages organic farming practices by providing financial assistance and training.",
+        "eligibility": "Farmers adopting organic farming methods in Madhya Pradesh.",
+        "apply_link": "https://mpkrishi.mp.gov.in/"
+    },
+    {
+        "name": "Pradhan Mantri Krishi Sinchai Yojana (State Component)",
+        "description": "Supports irrigation projects to increase water efficiency for agriculture.",
+        "eligibility": "Farmers in Madhya Pradesh using water-efficient techniques.",
+        "apply_link": "https://mpkrishi.mp.gov.in/"
+    }
+]
+,
+           "Manipur": [
+    {
+      "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+      "description": "Provides crop insurance coverage to farmers against natural calamities, pests, and diseases.",
+      "eligibility": "All farmers growing notified crops in areas identified for coverage.",
+      "apply_link": "https://pmfby.gov.in/"
+    },
+    {
+      "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+      "description": "Provides direct income support to small and marginal farmers.",
+      "eligibility": "All small and marginal farmers who own cultivable land.",
+      "apply_link": "https://pmkisan.gov.in/"
+    },
+    {
+      "name": "Soil Health Management Scheme",
+      "description": "Aims to improve soil health and increase agricultural productivity.",
+      "eligibility": "Farmers involved in agriculture.",
+      "apply_link": "https://www.agriculture.gov.in/"
+    },
+    {
+      "name": "National Agriculture Market (e-NAM)",
+      "description": "A platform that connects farmers with markets to promote direct marketing of agricultural products.",
+      "eligibility": "Farmers and traders participating in agricultural trade.",
+      "apply_link": "https://enam.gov.in/"
+    },
+    {
+      "name": "National Food Security Mission (NFSM)",
+      "description": "Aims to increase the production of food grains, oilseeds, and pulses.",
+      "eligibility": "Farmers cultivating rice, wheat, pulses, and oilseeds.",
+      "apply_link": "https://nfsm.gov.in/"
+    },
+    {
+      "name": "Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)",
+      "description": "Aims to increase the coverage of irrigation in agriculture through various water conservation schemes.",
+      "eligibility": "Farmers involved in agricultural irrigation.",
+      "apply_link": "https://pmksy.gov.in/"
+    },
+    {
+      "name": "Rashtriya Krishi Vikas Yojana (RKVY)",
+      "description": "Focuses on the development of agriculture and its allied sectors.",
+      "eligibility": "State governments, agricultural organizations, and farmers.",
+      "apply_link": "https://rkvy.nic.in/"
+    },
+    {
+      "name": "Farmers Welfare Fund Scheme",
+      "description": "Provides financial assistance for the welfare and empowerment of farmers.",
+      "eligibility": "Farmers with land holdings.",
+      "apply_link": "https://www.farmerswelfarefund.in/"
+    },
+    {
+      "name": "Pradhan Mantri Jan Dhan Yojana (PMJDY) - Agriculture Focus",
+      "description": "Financial inclusion program aimed at bringing farmers into the banking system, enabling them to get easy access to loans.",
+      "eligibility": "All farmers, particularly those without access to formal banking.",
+      "apply_link": "https://pmjdy.gov.in/"
+    },
+    {
+      "name": "Mukhyamantri Krishi Vikas Yojana",
+      "description": "State-level scheme for increasing the production of crops, promoting advanced agricultural practices.",
+      "eligibility": "Farmers of Manipur.",
+      "apply_link": "https://manipur.gov.in/"
+    }
+  ],
+           "Meghalaya": [
+    {
+      "name": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+      "description": "Provides crop insurance to farmers to protect against natural disasters, pests, and diseases.",
+      "eligibility": "All farmers growing notified crops.",
+      "apply_link": "https://pmfby.gov.in/"
+    },
+    {
+      "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+      "description": "Direct income support for small and marginal farmers.",
+      "eligibility": "Small and marginal farmers owning cultivable land.",
+      "apply_link": "https://pmkisan.gov.in/"
+    },
+    {
+      "name": "National Agriculture Market (e-NAM)",
+      "description": "A digital platform for farmers to sell produce directly to buyers, reducing the influence of middlemen.",
+      "eligibility": "Farmers and traders participating in agricultural trade.",
+      "apply_link": "https://enam.gov.in/"
+    },
+    {
+      "name": "Soil Health Management Scheme",
+      "description": "Improves soil health through the distribution of soil health cards and the promotion of organic farming.",
+      "eligibility": "Farmers and agricultural organizations.",
+      "apply_link": "https://www.agriculture.gov.in/"
+    },
+    {
+      "name": "National Food Security Mission (NFSM)",
+      "description": "Aims to enhance the production of food grains, oilseeds, and pulses through various schemes and subsidies.",
+      "eligibility": "Farmers engaged in the cultivation of rice, wheat, pulses, and oilseeds.",
+      "apply_link": "https://nfsm.gov.in/"
+    },
+    {
+      "name": "Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)",
+      "description": "Focuses on irrigation and water conservation to improve water use efficiency in agriculture.",
+      "eligibility": "Farmers engaged in agriculture requiring irrigation facilities.",
+      "apply_link": "https://pmksy.gov.in/"
+    },
+    {
+      "name": "Rashtriya Krishi Vikas Yojana (RKVY)",
+      "description": "Supports agricultural development by providing financial assistance to states to increase agricultural productivity.",
+      "eligibility": "State governments and farmers.",
+      "apply_link": "https://rkvy.nic.in/"
+    },
+    {
+      "name": "Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA)",
+      "description": "Provides employment to rural households, with a focus on agriculture-related work such as irrigation and water conservation.",
+      "eligibility": "Rural households seeking employment.",
+      "apply_link": "https://nrega.nic.in/"
+    },
+    {
+      "name": "Fisheries and Aquaculture Infrastructure Development Fund (FIDF)",
+      "description": "Promotes sustainable fish farming and the development of infrastructure in the fisheries sector.",
+      "eligibility": "Farmers, cooperatives, and entrepreneurs in the fisheries sector.",
+      "apply_link": "https://www.nabard.org/"
+    },
+    {
+      "name": "Meghalaya State Rural Livelihood Society (MSRLS) – Livelihood Support for Farmers",
+      "description": "Focuses on enhancing the livelihood of farmers and agricultural workers by providing training and financial support.",
+      "eligibility": "Farmers in rural Meghalaya.",
+      "apply_link": "https://msrls.nic.in/"
+    }
+  ],
+           "Mizoram": [
+  {
+    "name": "Mizoram State Organic Farming Scheme",
+    "description": "Promotes organic farming by providing subsidies for organic fertilizers and training for farmers.",
+    "eligibility": "Farmers in Mizoram who are interested in transitioning to organic farming.",
+    "apply_link": "https://agri.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram Horticulture Development Scheme",
+    "description": "Supports the cultivation of fruits, vegetables, and flowers, with a focus on improving productivity and quality.",
+    "eligibility": "Farmers engaged in horticulture in Mizoram.",
+    "apply_link": "https://horticulture.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram Agricultural Equipment Subsidy Scheme",
+    "description": "Provides subsidies to farmers for purchasing agricultural machinery and equipment to improve farming efficiency.",
+    "eligibility": "Farmers in Mizoram seeking assistance for purchasing equipment.",
+    "apply_link": "https://agri.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram Irrigation Development Scheme",
+    "description": "Aims to improve irrigation facilities in Mizoram, focusing on the construction of small-scale irrigation systems.",
+    "eligibility": "Farmers in Mizoram requiring irrigation support.",
+    "apply_link": "https://mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram Livestock Development Scheme",
+    "description": "Focuses on the development of the livestock sector, providing financial support for purchasing livestock and setting up veterinary care facilities.",
+    "eligibility": "Farmers and entrepreneurs involved in livestock farming.",
+    "apply_link": "https://animalhusbandry.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram State Rural Livelihood Mission (MSRLM) – Agricultural Livelihood Support",
+    "description": "Supports agricultural workers by providing skill development training and financial assistance for agricultural activities.",
+    "eligibility": "Rural farmers and agricultural workers in Mizoram.",
+    "apply_link": "https://msrlm.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram Agro-Processing Development Scheme",
+    "description": "Promotes agro-processing activities in Mizoram, providing assistance for setting up agro-processing units.",
+    "eligibility": "Entrepreneurs and farmers in Mizoram involved in agro-processing.",
+    "apply_link": "https://agri.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram Crop Diversification Scheme",
+    "description": "Encourages farmers to diversify their crop production by providing financial support for cultivating alternative crops.",
+    "eligibility": "Farmers in Mizoram looking to diversify their crops.",
+    "apply_link": "https://agri.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram Seed Distribution Scheme",
+    "description": "Aims to provide high-quality seeds to farmers to enhance agricultural productivity.",
+    "eligibility": "Farmers in Mizoram.",
+    "apply_link": "https://agri.mizoram.gov.in/"
+  },
+  {
+    "name": "Mizoram State Fisheries Development Scheme",
+    "description": "Provides support for the development of the fisheries sector, including assistance for fish farming and fisheries infrastructure.",
+    "eligibility": "Fishermen and fish farmers in Mizoram.",
+    "apply_link": "https://fisheries.mizoram.gov.in/"
+  }
+]
+,
+            "Nagaland": [
+  {
+    "name": "Nagaland State Organic Farming Scheme",
+    "description": "Encourages farmers to adopt organic farming practices by providing financial assistance for organic inputs and training.",
+    "eligibility": "Farmers in Nagaland interested in organic farming.",
+    "apply_link": "https://agri.nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland Horticulture Development Scheme",
+    "description": "Supports the development of horticulture in Nagaland, focusing on the cultivation of fruits, vegetables, and flowers.",
+    "eligibility": "Farmers in Nagaland involved in horticultural activities.",
+    "apply_link": "https://horticulture.nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland Crop Diversification Scheme",
+    "description": "Provides financial assistance for the diversification of crops to improve agricultural productivity.",
+    "eligibility": "Farmers in Nagaland who wish to diversify their crops.",
+    "apply_link": "https://agri.nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland Agricultural Equipment Subsidy Scheme",
+    "description": "Offers subsidies to farmers for purchasing modern agricultural machinery and equipment to improve farming productivity.",
+    "eligibility": "Farmers in Nagaland seeking to purchase agricultural machinery.",
+    "apply_link": "https://agri.nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland State Livestock Development Scheme",
+    "description": "Provides financial support for livestock development activities, including the purchase of livestock and improvement of veterinary facilities.",
+    "eligibility": "Farmers and entrepreneurs involved in livestock farming in Nagaland.",
+    "apply_link": "https://animalhusbandry.nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland Irrigation Development Scheme",
+    "description": "Supports the construction of irrigation infrastructure to ensure the availability of water for agricultural activities.",
+    "eligibility": "Farmers in Nagaland requiring irrigation assistance.",
+    "apply_link": "https://nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland State Agro-Processing Scheme",
+    "description": "Promotes agro-processing industries in Nagaland by providing financial assistance for setting up agro-processing units.",
+    "eligibility": "Entrepreneurs and farmers in Nagaland involved in agro-processing.",
+    "apply_link": "https://nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland Seed Distribution Scheme",
+    "description": "Provides high-quality seeds to farmers to enhance agricultural productivity.",
+    "eligibility": "Farmers in Nagaland.",
+    "apply_link": "https://agri.nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland Rural Livelihoods Project",
+    "description": "Supports rural farmers and agricultural workers through skill development and financial assistance.",
+    "eligibility": "Rural farmers and agricultural workers in Nagaland.",
+    "apply_link": "https://nagaland.gov.in/"
+  },
+  {
+    "name": "Nagaland State Fisheries Development Scheme",
+    "description": "Promotes the development of the fisheries sector in Nagaland, providing financial support for fish farming and infrastructure.",
+    "eligibility": "Fishermen and fish farmers in Nagaland.",
+    "apply_link": "https://fisheries.nagaland.gov.in/"
+  }
+],
+
+            "Odisha": [
+    {
+        "name": "KALIA Scheme",
+        "description": "Provides financial assistance to farmers, landless agricultural laborers, and sharecroppers.",
+        "eligibility": "Small and marginal farmers and landless agricultural laborers in Odisha.",
+        "apply_link": "https://kalia.odisha.gov.in/"
+    },
+    {
+        "name": "Biju Krushak Kalyan Yojana",
+        "description": "Aims to support the welfare of farmers by providing financial assistance for healthcare, insurance, and other social benefits.",
+        "eligibility": "Farmers in Odisha.",
+        "apply_link": "https://agrico.odisha.gov.in/"
+    },
+    {
+        "name": "Odisha State Agriculture Policy",
+        "description": "Aims to increase agricultural productivity, promote sustainable farming, and improve the livelihoods of farmers.",
+        "eligibility": "Farmers in Odisha.",
+        "apply_link": "https://agrico.odisha.gov.in/"
+    },
+    {
+        "name": "Mission Shakti",
+        "description": "Empowers women farmers through self-help groups, improving access to credit, training, and agricultural resources.",
+        "eligibility": "Women farmers and self-help groups in Odisha.",
+        "apply_link": "https://www.missionshaktiodisha.gov.in/"
+    },
+    {
+        "name": "Odisha Irrigation Scheme",
+        "description": "Provides financial assistance for the construction and maintenance of irrigation systems to ensure water availability for agriculture.",
+        "eligibility": "Farmers in Odisha in need of irrigation support.",
+        "apply_link": "https://odisha.gov.in/"
+    },
+    {
+        "name": "Odisha Seed Distribution Scheme",
+        "description": "Distributes high-quality seeds to farmers for enhanced agricultural production.",
+        "eligibility": "Farmers in Odisha.",
+        "apply_link": "https://agrico.odisha.gov.in/"
+    },
+    {
+        "name": "Rastriya Krishi Vikas Yojana (RKVY) Odisha",
+        "description": "Promotes sustainable agriculture by providing financial support for improving farm productivity and infrastructure.",
+        "eligibility": "Farmers, agriculture entrepreneurs, and agricultural businesses in Odisha.",
+        "apply_link": "https://agrico.odisha.gov.in/"
+    },
+    {
+        "name": "Odisha Soil Health Management Scheme",
+        "description": "Supports farmers with soil testing services and recommendations for improving soil health and crop yields.",
+        "eligibility": "Farmers in Odisha.",
+        "apply_link": "https://agrico.odisha.gov.in/"
+    },
+    {
+        "name": "Odisha Livestock Development Scheme",
+        "description": "Provides financial assistance for improving livestock farming, including support for veterinary care and livestock management.",
+        "eligibility": "Farmers and livestock owners in Odisha.",
+        "apply_link": "https://odishalivestock.gov.in/"
+    },
+    {
+        "name": "Odisha Fisheries Development Scheme",
+        "description": "Promotes fish farming and related activities by offering financial assistance and technical support.",
+        "eligibility": "Fishermen and fish farmers in Odisha.",
+        "apply_link": "https://fisheries.odisha.gov.in/"
+    }
+],
+
+         "Punjab": [
+    {
+        "name": "Mahatma Gandhi Sarbat Sehat Bima Yojana",
+        "description": "Provides free health insurance to residents of Punjab.",
+        "eligibility": "Families identified under the SECC 2011 database in Punjab.",
+        "apply_link": "https://sha.punjab.gov.in/"
+    },
+    {
+        "name": "Paani Bachao, Paise Kamao",
+        "description": "Encourages farmers to conserve water through efficient irrigation practices.",
+        "eligibility": "Farmers in Punjab.",
+        "apply_link": "https://punjab.gov.in/"
+    },
+    {
+        "name": "Punjab State Agriculture Policy",
+        "description": "Aims to increase agricultural productivity and promote sustainable farming in Punjab.",
+        "eligibility": "Farmers in Punjab.",
+        "apply_link": "https://punjabagriculture.gov.in/"
+    },
+    {
+        "name": "Fasal Bima Yojana (Crop Insurance Scheme)",
+        "description": "Provides crop insurance to safeguard farmers against crop loss due to natural calamities.",
+        "eligibility": "Farmers cultivating notified crops in Punjab.",
+        "apply_link": "https://www.pmfby.gov.in/"
+    },
+    {
+        "name": "Punjab Seed Distribution Scheme",
+        "description": "Provides quality seeds to farmers for enhancing agricultural productivity.",
+        "eligibility": "Farmers in Punjab.",
+        "apply_link": "https://punjabagriculture.gov.in/"
+    },
+    {
+        "name": "Punjab Irrigation Scheme",
+        "description": "Supports farmers with irrigation facilities to enhance water efficiency for crops.",
+        "eligibility": "Farmers in Punjab.",
+        "apply_link": "https://punjabgovt.nic.in/"
+    },
+    {
+        "name": "Punjab Dairy Development Scheme",
+        "description": "Supports dairy farmers by providing financial assistance and promoting dairy farming.",
+        "eligibility": "Dairy farmers in Punjab.",
+        "apply_link": "https://punjabagriculture.gov.in/"
+    },
+    {
+        "name": "Punjab Fruit and Vegetable Processing Scheme",
+        "description": "Promotes the processing of fruits and vegetables, increasing the value of agricultural products.",
+        "eligibility": "Farmers and entrepreneurs in Punjab involved in fruit and vegetable farming.",
+        "apply_link": "https://punjabagriculture.gov.in/"
+    },
+    {
+        "name": "Punjab Organic Farming Scheme",
+        "description": "Encourages farmers to adopt organic farming practices for sustainable agriculture.",
+        "eligibility": "Farmers in Punjab interested in organic farming.",
+        "apply_link": "https://punjabagriculture.gov.in/"
+    },
+    {
+        "name": "Punjab Livestock Development Scheme",
+        "description": "Supports livestock farmers by providing financial assistance and technical training.",
+        "eligibility": "Livestock farmers in Punjab.",
+        "apply_link": "https://punjabagriculture.gov.in/"
+    }
+]
+,
+           "Sikkim": [
+    {
+        "name": "Sikkim Organic Mission",
+        "description": "Aims to transform Sikkim into a fully organic state.",
+        "eligibility": "Farmers practicing organic farming in Sikkim.",
+        "apply_link": "https://sikkim.gov.in/"
+    },
+    {
+        "name": "Chief Minister’s Startup Scheme",
+        "description": "Provides financial assistance to startups in Sikkim.",
+        "eligibility": "Entrepreneurs and startups based in Sikkim.",
+        "apply_link": "https://startup.sikkim.gov.in/"
+    },
+    {
+        "name": "Sikkim Horticulture Development Scheme",
+        "description": "Promotes the development of horticulture and related agricultural practices in Sikkim.",
+        "eligibility": "Farmers engaged in horticulture in Sikkim.",
+        "apply_link": "https://sikkim.gov.in/"
+    },
+    {
+        "name": "Sikkim Seed Bank Scheme",
+        "description": "Encourages farmers to use high-quality seeds for better agricultural productivity.",
+        "eligibility": "Farmers in Sikkim.",
+        "apply_link": "https://sikkim.gov.in/"
+    },
+    {
+        "name": "Sikkim Dairy Development Scheme",
+        "description": "Provides financial and technical support to dairy farmers in Sikkim.",
+        "eligibility": "Dairy farmers in Sikkim.",
+        "apply_link": "https://sikkim.gov.in/"
+    },
+    {
+        "name": "Sikkim Greenhouse Scheme",
+        "description": "Promotes greenhouse farming for improving agricultural productivity in Sikkim.",
+        "eligibility": "Farmers in Sikkim interested in greenhouse farming.",
+        "apply_link": "https://sikkim.gov.in/"
+    },
+    {
+        "name": "Sikkim Livestock Development Scheme",
+        "description": "Supports livestock farming by providing financial assistance and technical training.",
+        "eligibility": "Livestock farmers in Sikkim.",
+        "apply_link": "https://sikkim.gov.in/"
+    },
+    {
+        "name": "Sikkim Agri-Tourism Scheme",
+        "description": "Encourages agricultural tourism to boost local agriculture and economy.",
+        "eligibility": "Farmers and tourism entrepreneurs in Sikkim.",
+        "apply_link": "https://sikkim.gov.in/"
+    }
+],
+"Telangana": [
+    {
+        "name": "Rythu Bandhu Scheme",
+        "description": "Provides financial assistance to farmers for agricultural investment.",
+        "eligibility": "All farmers with agricultural landholding in Telangana.",
+        "apply_link": "https://treasury.telangana.gov.in/"
+    },
+    {
+        "name": "Kalyana Lakshmi Scheme",
+        "description": "Provides financial assistance for the marriage of girls from economically weaker sections.",
+        "eligibility": "Girls from low-income families in Telangana.",
+        "apply_link": "https://telangana.gov.in/"
+    },
+    {
+        "name": "Rythu Bima Scheme",
+        "description": "Provides life insurance coverage to farmers in case of accidental death or permanent disability.",
+        "eligibility": "Farmers in Telangana.",
+        "apply_link": "https://telangana.gov.in/"
+    },
+    {
+        "name": "Mission Kakatiya",
+        "description": "Revitalizes minor irrigation tanks to improve water availability for agriculture.",
+        "eligibility": "Farmers in Telangana with land under irrigation.",
+        "apply_link": "https://telangana.gov.in/"
+    },
+    {
+        "name": "Palamuru Rangareddy Lift Irrigation Scheme",
+        "description": "Ensures water availability for irrigation to farmers in the drought-prone region of Palamuru and Rangareddy.",
+        "eligibility": "Farmers in Palamuru and Rangareddy regions.",
+        "apply_link": "https://telangana.gov.in/"
+    },
+    {
+        "name": "TS Farmers Welfare Scheme",
+        "description": "Provides various welfare measures including financial support and training to farmers.",
+        "eligibility": "Farmers in Telangana.",
+        "apply_link": "https://telangana.gov.in/"
+    },
+    {
+        "name": "Telangana State Organic Farming Policy",
+        "description": "Encourages organic farming practices for sustainable agriculture in Telangana.",
+        "eligibility": "Farmers practicing organic farming in Telangana.",
+        "apply_link": "https://telangana.gov.in/"
+    },
+    {
+        "name": "Telangana Dairy Development Scheme",
+        "description": "Provides financial assistance and training to dairy farmers in Telangana.",
+        "eligibility": "Dairy farmers in Telangana.",
+        "apply_link": "https://telangana.gov.in/"
+    }
+]
+,
+            "Tripura": [
+    {
+        "name": "Mukhyamantri Tripura Gram Samriddhi Yojana",
+        "description": "Aims to enhance the quality of life in rural areas.",
+        "eligibility": "Rural households in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Health Insurance Scheme",
+        "description": "Provides health insurance coverage for low-income families.",
+        "eligibility": "Economically weaker sections in Tripura.",
+        "apply_link": "https://tripurahealthinsurance.gov.in/"
+    },
+    {
+        "name": "Tripura Agriculture Development Scheme",
+        "description": "Promotes agricultural productivity and provides financial assistance to farmers.",
+        "eligibility": "Farmers in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Organic Farming Scheme",
+        "description": "Encourages farmers to adopt organic farming practices.",
+        "eligibility": "Farmers in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Horticulture Development Scheme",
+        "description": "Supports horticultural farming and encourages the cultivation of fruits and vegetables.",
+        "eligibility": "Farmers in Tripura engaged in horticulture.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Irrigation Enhancement Scheme",
+        "description": "Provides financial assistance to improve irrigation facilities for farmers.",
+        "eligibility": "Farmers in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Livestock Development Scheme",
+        "description": "Supports livestock farmers by providing financial aid and technical training.",
+        "eligibility": "Livestock farmers in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Soil Health Management Scheme",
+        "description": "Promotes soil health management practices to increase agricultural productivity.",
+        "eligibility": "Farmers in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Farmer Welfare Scheme",
+        "description": "Provides financial assistance for the welfare of farmers in Tripura.",
+        "eligibility": "Farmers in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    },
+    {
+        "name": "Tripura Fisheries Development Scheme",
+        "description": "Promotes fish farming and provides assistance for the development of fisheries.",
+        "eligibility": "Fishermen and fish farmers in Tripura.",
+        "apply_link": "https://tripura.gov.in/"
+    }
+],
+"Uttarakhand": [
+    {
+        "name": "Mukhyamantri Swasthya Bima Yojana",
+        "description": "Provides free health insurance coverage to residents of Uttarakhand.",
+        "eligibility": "Residents of Uttarakhand below the poverty line.",
+        "apply_link": "https://uttarakhand.gov.in/"
+    },
+    {
+        "name": "Deen Dayal Upadhyaya Kisan Kalyan Yojana",
+        "description": "Provides interest-free loans to farmers.",
+        "eligibility": "Farmers residing in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Organic Farming Scheme",
+        "description": "Encourages farmers in Uttarakhand to practice organic farming.",
+        "eligibility": "Farmers in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Watershed Management Scheme",
+        "description": "Supports watershed management to improve water availability for agriculture.",
+        "eligibility": "Farmers in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Horticulture Development Scheme",
+        "description": "Provides financial assistance for the development of horticulture in Uttarakhand.",
+        "eligibility": "Horticulturists in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Dairy Development Scheme",
+        "description": "Supports dairy farmers by providing financial assistance and training.",
+        "eligibility": "Dairy farmers in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Kisan Samridhi Yojana",
+        "description": "Provides financial assistance and insurance cover to farmers in Uttarakhand.",
+        "eligibility": "Farmers in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Livestock Development Scheme",
+        "description": "Provides financial aid and training for livestock farming.",
+        "eligibility": "Livestock farmers in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Rainwater Harvesting Scheme",
+        "description": "Promotes rainwater harvesting to support agricultural activities.",
+        "eligibility": "Farmers and rural households in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    },
+    {
+        "name": "Uttarakhand Kisan Vikas Yojana",
+        "description": "Promotes sustainable farming practices and supports farm diversification.",
+        "eligibility": "Farmers in Uttarakhand.",
+        "apply_link": "https://www.uk.gov.in/"
+    }
+],
+"West Bengal": [
+    {
+        "name": "Kanyashree Prakalpa",
+        "description": "Promotes education and delays early marriages for girls.",
+        "eligibility": "Girl students aged 13-19 in West Bengal.",
+        "apply_link": "https://wbkanyashree.gov.in/"
+    },
+    {
+        "name": "Sabooj Sathi Scheme",
+        "description": "Distributes bicycles to school-going students.",
+        "eligibility": "Students of classes IX to XII in West Bengal.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "West Bengal Krishi Shilpa Yojana",
+        "description": "Provides financial assistance to farmers for agricultural development.",
+        "eligibility": "Farmers in West Bengal.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "West Bengal Organic Farming Scheme",
+        "description": "Promotes organic farming and sustainable agricultural practices in West Bengal.",
+        "eligibility": "Farmers in West Bengal practicing organic farming.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "Krishak Bandhu Scheme",
+        "description": "Provides financial assistance to farmers to support agricultural activities.",
+        "eligibility": "Farmers in West Bengal.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "West Bengal Irrigation Scheme",
+        "description": "Provides assistance to farmers for better irrigation infrastructure.",
+        "eligibility": "Farmers in West Bengal with irrigation needs.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "West Bengal Crop Insurance Scheme",
+        "description": "Provides crop insurance to farmers to mitigate losses due to natural disasters.",
+        "eligibility": "Farmers in West Bengal.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "West Bengal Fish Farming Scheme",
+        "description": "Supports fish farming and aquaculture activities in the state.",
+        "eligibility": "Fish farmers in West Bengal.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "West Bengal Dairy Development Scheme",
+        "description": "Provides financial support to dairy farmers in West Bengal.",
+        "eligibility": "Dairy farmers in West Bengal.",
+        "apply_link": "https://wb.gov.in/"
+    },
+    {
+        "name": "West Bengal Horticulture Development Scheme",
+        "description": "Provides financial assistance for the development of horticulture in West Bengal.",
+        "eligibility": "Horticulturists in West Bengal.",
+        "apply_link": "https://wb.gov.in/"
+    }
+]
+,
+           "Arunachal Pradesh": [
+    {
+        "name": "Deen Dayal Upadhyaya Bunkar Yojana",
+        "description": "Provides financial assistance to handloom weavers.",
+        "eligibility": "Handloom weavers in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Chief Minister's Free Cancer Treatment Scheme",
+        "description": "Offers free cancer treatment to residents of Arunachal Pradesh.",
+        "eligibility": "Residents diagnosed with cancer.",
+        "apply_link": "https://itanagar.nic.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Organic Farming Scheme",
+        "description": "Encourages organic farming practices in Arunachal Pradesh.",
+        "eligibility": "Farmers in Arunachal Pradesh practicing organic farming.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Horticulture Development Scheme",
+        "description": "Supports the development of horticulture in Arunachal Pradesh.",
+        "eligibility": "Horticulturists in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Soil Health Management Scheme",
+        "description": "Promotes soil health management to improve agricultural productivity.",
+        "eligibility": "Farmers in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Irrigation Development Scheme",
+        "description": "Supports the development of irrigation facilities for farmers.",
+        "eligibility": "Farmers in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Livestock Development Scheme",
+        "description": "Provides financial assistance and training for livestock farming.",
+        "eligibility": "Livestock farmers in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Fisheries Development Scheme",
+        "description": "Supports the development of fish farming and aquaculture in Arunachal Pradesh.",
+        "eligibility": "Fishermen and fish farmers in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Dairy Development Scheme",
+        "description": "Assists dairy farmers with financial support and training.",
+        "eligibility": "Dairy farmers in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    },
+    {
+        "name": "Arunachal Pradesh Rainwater Harvesting Scheme",
+        "description": "Promotes rainwater harvesting to support agriculture in the state.",
+        "eligibility": "Farmers in Arunachal Pradesh.",
+        "apply_link": "https://arunachalpradesh.gov.in/"
+    }
+],
+"Goa": [
+    {
+        "name": "Griha Aadhar Scheme",
+        "description": "Provides financial assistance to homemakers for family welfare.",
+        "eligibility": "Women in Goa with a family income below ₹3 lakh per annum.",
+        "apply_link": "https://www.goa.gov.in/"
+    },
+    {
+        "name": "Dayanand Social Security Scheme",
+        "description": "Offers financial support to senior citizens, widows, and disabled individuals.",
+        "eligibility": "Residents of Goa meeting the criteria.",
+        "apply_link": "https://goaonline.gov.in/"
+    },
+    {
+        "name": "Goa Organic Farming Scheme",
+        "description": "Encourages farmers to adopt organic farming practices.",
+        "eligibility": "Farmers in Goa.",
+        "apply_link": "https://goa.gov.in/"
+    },
+    {
+        "name": "Goa Horticulture Development Scheme",
+        "description": "Supports the cultivation of fruits, vegetables, and flowers in Goa.",
+        "eligibility": "Farmers in Goa engaged in horticulture.",
+        "apply_link": "https://goa.gov.in/"
+    },
+    {
+        "name": "Goa Fisheries Development Scheme",
+        "description": "Supports fish farming and aquaculture in Goa.",
+        "eligibility": "Fishermen and fish farmers in Goa.",
+        "apply_link": "https://goa.gov.in/"
+    },
+    {
+        "name": "Goa Irrigation Support Scheme",
+        "description": "Provides financial aid to farmers to improve irrigation systems.",
+        "eligibility": "Farmers in Goa with irrigation needs.",
+        "apply_link": "https://goa.gov.in/"
+    },
+    {
+        "name": "Goa Dairy Development Scheme",
+        "description": "Provides support to dairy farmers in Goa.",
+        "eligibility": "Dairy farmers in Goa.",
+        "apply_link": "https://goa.gov.in/"
+    },
+    {
+        "name": "Goa Soil Health Improvement Scheme",
+        "description": "Promotes soil health management practices to improve agriculture.",
+        "eligibility": "Farmers in Goa.",
+        "apply_link": "https://goa.gov.in/"
+    },
+    {
+        "name": "Goa Agriculture Subsidy Scheme",
+        "description": "Provides subsidies on agricultural inputs for farmers in Goa.",
+        "eligibility": "Farmers in Goa.",
+        "apply_link": "https://goa.gov.in/"
+    },
+    {
+        "name": "Goa Crop Insurance Scheme",
+        "description": "Provides insurance coverage to farmers for crop-related losses.",
+        "eligibility": "Farmers in Goa.",
+        "apply_link": "https://goa.gov.in/"
+    }
+],
+"Haryana": [
+    {
+        "name": "Old Age Samman Allowance Scheme",
+        "description": "Provides monthly financial support to senior citizens.",
+        "eligibility": "Residents of Haryana aged 60 and above.",
+        "apply_link": "https://pension.socialjusticehry.gov.in/"
+    },
+    {
+        "name": "Mukhya Mantri Vivah Shagun Yojana",
+        "description": "Offers financial assistance for marriage to families from weaker sections.",
+        "eligibility": "Eligible families with annual income below ₹1.5 lakh.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Krishi Kisan Yojana",
+        "description": "Supports farmers with financial assistance for agriculture-related activities.",
+        "eligibility": "Farmers in Haryana.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Organic Farming Scheme",
+        "description": "Encourages farmers to adopt organic farming practices.",
+        "eligibility": "Farmers in Haryana practicing organic farming.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Crop Insurance Scheme",
+        "description": "Provides crop insurance to farmers in Haryana to mitigate losses.",
+        "eligibility": "Farmers in Haryana.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Irrigation Support Scheme",
+        "description": "Supports farmers with improved irrigation facilities and systems.",
+        "eligibility": "Farmers in Haryana.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Livestock Development Scheme",
+        "description": "Assists livestock farmers with financial support and technical assistance.",
+        "eligibility": "Livestock farmers in Haryana.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Soil Health Management Scheme",
+        "description": "Supports soil health management practices to increase farm productivity.",
+        "eligibility": "Farmers in Haryana.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Dairy Farming Scheme",
+        "description": "Provides financial support for dairy farming in Haryana.",
+        "eligibility": "Dairy farmers in Haryana.",
+        "apply_link": "https://haryana.gov.in/"
+    },
+    {
+        "name": "Haryana Fisheries Development Scheme",
+        "description": "Supports fish farming and aquaculture development in Haryana.",
+        "eligibility": "Fishermen and fish farmers in Haryana.",
+        "apply_link": "https://haryana.gov.in/"
+    }
+]
+,
+            "Assam": [
+    {
+        "name": "Assam Farmer’s Income Scheme",
+        "description": "Provides financial support to farmers to increase agricultural productivity.",
+        "eligibility": "Registered farmers in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Tea Labour Welfare Scheme",
+        "description": "Offers financial and welfare benefits to tea garden workers.",
+        "eligibility": "Tea garden workers and their families in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Organic Farming Promotion Scheme",
+        "description": "Promotes organic farming practices among farmers in Assam.",
+        "eligibility": "Farmers in Assam practicing or interested in organic farming.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Irrigation Support Scheme",
+        "description": "Provides financial assistance to improve irrigation facilities for farmers.",
+        "eligibility": "Farmers in Assam with irrigation needs.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Crop Insurance Scheme",
+        "description": "Provides insurance coverage for crops to mitigate risks due to adverse weather conditions.",
+        "eligibility": "Farmers in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Livestock Development Scheme",
+        "description": "Supports farmers with financial assistance for livestock farming.",
+        "eligibility": "Livestock farmers in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Fisheries Development Scheme",
+        "description": "Promotes fish farming and aquaculture in Assam.",
+        "eligibility": "Fishermen and fish farmers in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Soil Health Management Scheme",
+        "description": "Promotes soil health management practices to improve agricultural productivity.",
+        "eligibility": "Farmers in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Horticulture Development Scheme",
+        "description": "Supports the development of horticulture, including fruit and vegetable farming.",
+        "eligibility": "Horticulturists in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    },
+    {
+        "name": "Assam Agricultural Technology Mission",
+        "description": "Supports the adoption of modern agricultural technologies to improve productivity.",
+        "eligibility": "Farmers in Assam.",
+        "apply_link": "https://assam.gov.in/"
+    }
+],
+"Chhattisgarh": [
+    {
+        "name": "Rajiv Gandhi Kisan Nyay Yojana",
+        "description": "Provides financial assistance to farmers in Chhattisgarh based on their landholdings to encourage agricultural activities.",
+        "eligibility": "Farmers in Chhattisgarh.",
+        "apply_link": "https://agri.chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Chhattisgarh Organic Farming Scheme",
+        "description": "Promotes organic farming and supports farmers adopting organic practices in Chhattisgarh.",
+        "eligibility": "Farmers in Chhattisgarh practicing organic farming.",
+        "apply_link": "https://chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Chhattisgarh Irrigation Scheme",
+        "description": "Provides financial assistance to improve irrigation facilities for farmers in Chhattisgarh.",
+        "eligibility": "Farmers in need of irrigation facilities.",
+        "apply_link": "https://agri.chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Chhattisgarh Crop Insurance Scheme",
+        "description": "Offers crop insurance coverage to farmers in case of natural disasters and unforeseen circumstances.",
+        "eligibility": "Farmers in Chhattisgarh.",
+        "apply_link": "https://agri.chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Paddy Procurement Scheme",
+        "description": "Supports farmers by procuring paddy at MSP (Minimum Support Price) to ensure they receive fair prices for their crops.",
+        "eligibility": "Paddy farmers in Chhattisgarh.",
+        "apply_link": "https://agri.chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Gauthan Yojana",
+        "description": "Provides support to farmers in managing cattle and organizing livestock-based income generation activities.",
+        "eligibility": "Farmers and cattle owners in Chhattisgarh.",
+        "apply_link": "https://chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Kisan Samriddhi Yojana",
+        "description": "Supports farmers to improve crop productivity by providing financial assistance and access to high-quality seeds.",
+        "eligibility": "Farmers in Chhattisgarh.",
+        "apply_link": "https://agri.chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Chhattisgarh Horticulture Scheme",
+        "description": "Provides assistance for developing horticultural activities and improving fruit and vegetable production.",
+        "eligibility": "Farmers engaged in horticulture in Chhattisgarh.",
+        "apply_link": "https://chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Drip Irrigation Scheme",
+        "description": "Promotes the use of drip irrigation systems to conserve water and improve crop yield.",
+        "eligibility": "Farmers with irrigation needs.",
+        "apply_link": "https://agri.chhattisgarh.gov.in/"
+    },
+    {
+        "name": "Chhattisgarh Animal Husbandry Scheme",
+        "description": "Provides financial assistance to improve livestock farming and animal husbandry practices in the state.",
+        "eligibility": "Farmers and animal breeders in Chhattisgarh.",
+        "apply_link": "https://agri.chhattisgarh.gov.in/"
+    }
+]
+,
+"Andhra Pradesh": [
+    {
+        "name": "Rythu Bharosa Scheme",
+        "description": "Provides financial assistance to farmers to enhance agricultural productivity and reduce farming costs.",
+        "eligibility": "Farmers in Andhra Pradesh.",
+        "apply_link": "https://rythubharosa.ap.gov.in/"
+    },
+    {
+        "name": "AP State Crop Insurance Scheme",
+        "description": "Offers crop insurance to farmers to mitigate losses in the event of natural calamities.",
+        "eligibility": "Farmers in Andhra Pradesh.",
+        "apply_link": "https://apcropinsurancescheme.ap.gov.in/"
+    },
+    {
+        "name": "Integrated Irrigation Development Scheme",
+        "description": "Helps farmers improve irrigation systems to enhance water usage efficiency and crop productivity.",
+        "eligibility": "Farmers with irrigation needs.",
+        "apply_link": "https://agri.ap.gov.in/"
+    },
+    {
+        "name": "Jalanidhi Scheme",
+        "description": "Provides financial assistance for water conservation and management projects for farmers in Andhra Pradesh.",
+        "eligibility": "Farmers in Andhra Pradesh.",
+        "apply_link": "https://agri.ap.gov.in/"
+    },
+    {
+        "name": "AP Organic Farming Scheme",
+        "description": "Supports farmers adopting organic farming methods and promotes eco-friendly practices.",
+        "eligibility": "Farmers practicing organic farming.",
+        "apply_link": "https://agri.ap.gov.in/"
+    },
+    {
+        "name": "NTR Farmers Welfare Scheme",
+        "description": "Supports the welfare of farmers by providing subsidies and financial assistance for agricultural activities.",
+        "eligibility": "Farmers in Andhra Pradesh.",
+        "apply_link": "https://agri.ap.gov.in/"
+    },
+    {
+        "name": "Panta Sanjeevani Scheme",
+        "description": "Promotes water conservation, soil health, and agricultural productivity through efficient water management.",
+        "eligibility": "Farmers in Andhra Pradesh.",
+        "apply_link": "https://agri.ap.gov.in/"
+    },
+    {
+        "name": "Chandranna Rythu Kshetralu Scheme",
+        "description": "Aims to provide benefits such as crop insurance and financial support to farmers in Andhra Pradesh.",
+        "eligibility": "Farmers in Andhra Pradesh.",
+        "apply_link": "https://agri.ap.gov.in/"
+    },
+    {
+        "name": "Soil Health Management Scheme",
+        "description": "Supports farmers in maintaining healthy soil for better crop productivity and sustainable agriculture.",
+        "eligibility": "Farmers in Andhra Pradesh.",
+        "apply_link": "https://agri.ap.gov.in/"
+    },
+    {
+        "name": "Fisheries Development Scheme",
+        "description": "Supports the development of fisheries, improving production, and providing financial assistance to fishermen.",
+        "eligibility": "Fishermen and fish farmers in Andhra Pradesh.",
+        "apply_link": "https://apfisheries.gov.in/"
+    }
+]
+,
+"Bihar": [
+    {
+        "name": "Bihar Kisan Rin Mafi Yojana",
+        "description": "Offers loan waivers and financial assistance to farmers to reduce their debt burden.",
+        "eligibility": "Farmers in Bihar with outstanding loans.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Bihar State Crop Insurance Scheme",
+        "description": "Provides insurance for crops damaged due to natural disasters and unforeseen events.",
+        "eligibility": "Farmers in Bihar.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Bihar Irrigation Scheme",
+        "description": "Supports the development of irrigation infrastructure to improve water availability for agriculture.",
+        "eligibility": "Farmers in Bihar.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Bihar Organic Farming Scheme",
+        "description": "Encourages farmers to adopt organic farming practices to improve soil health and agricultural sustainability.",
+        "eligibility": "Farmers practicing organic farming.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Bihar Krishi Yojana",
+        "description": "Supports farmers with financial assistance for agricultural activities, including seeds, fertilizers, and machinery.",
+        "eligibility": "Farmers in Bihar.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Bihar Horticulture Development Scheme",
+        "description": "Promotes the development of horticulture and encourages farmers to grow fruits and vegetables.",
+        "eligibility": "Farmers in Bihar involved in horticulture.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Kisan Loan Waiver Scheme",
+        "description": "Provides loan waivers to farmers to ease the financial burden on small and marginal farmers.",
+        "eligibility": "Farmers with outstanding loans in Bihar.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Bihar Dairy Development Scheme",
+        "description": "Supports the development of dairy farming, providing financial assistance and training to dairy farmers.",
+        "eligibility": "Dairy farmers in Bihar.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Paddy Procurement Scheme",
+        "description": "Supports paddy farmers by ensuring they receive MSP for their crops.",
+        "eligibility": "Paddy farmers in Bihar.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    },
+    {
+        "name": "Bihar Fishermen Welfare Scheme",
+        "description": "Offers welfare support to fishermen and promotes sustainable fishing practices.",
+        "eligibility": "Fishermen in Bihar.",
+        "apply_link": "https://agri.bihar.gov.in/"
+    }
+]
+,
+"Gujarat": [
+    {
+        "name": "Kisan Suryoday Yojana",
+        "description": "Provides financial assistance to farmers for the installation of solar-powered irrigation systems.",
+        "eligibility": "Farmers in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Gujarat State Crop Insurance Scheme",
+        "description": "Offers crop insurance to farmers in case of natural disasters and crop damage.",
+        "eligibility": "Farmers in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Mukhya Mantri Kisan Sahay Yojana",
+        "description": "Provides financial support to farmers during natural calamities and crop loss.",
+        "eligibility": "Farmers in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Krishi Mahotsav",
+        "description": "A campaign to provide information and resources to farmers about modern farming techniques and government schemes.",
+        "eligibility": "Farmers in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Drip Irrigation Scheme",
+        "description": "Encourages farmers to use drip irrigation systems to save water and increase crop yield.",
+        "eligibility": "Farmers in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Pashu Vikas Yojana",
+        "description": "Provides financial assistance to improve livestock farming in Gujarat.",
+        "eligibility": "Farmers and livestock owners in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Gujarat Organic Farming Scheme",
+        "description": "Encourages farmers to adopt organic farming practices and provides subsidies for organic certification.",
+        "eligibility": "Farmers practicing organic farming in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Gujarat Horticulture Development Scheme",
+        "description": "Promotes the cultivation of fruits and vegetables through financial assistance and technical support.",
+        "eligibility": "Farmers involved in horticulture in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Mukhyamantri Kisan Sahayata Yojana",
+        "description": "Provides financial assistance to farmers for improving agricultural infrastructure.",
+        "eligibility": "Farmers in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    },
+    {
+        "name": "Vriksharopan Abhiyan",
+        "description": "A plantation drive to increase the green cover and promote agroforestry in Gujarat.",
+        "eligibility": "Farmers in Gujarat.",
+        "apply_link": "https://www.gujagri.gov.in/"
+    }
+]
+,
+"Himachal Pradesh": [
+    {
+        "name": "Himachal Pradesh Kisan Samman Yojana",
+        "description": "Provides financial assistance to farmers in case of crop loss due to natural calamities.",
+        "eligibility": "Farmers in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Himachal Pradesh Crop Insurance Scheme",
+        "description": "Offers crop insurance coverage to farmers against crop damage caused by adverse weather conditions.",
+        "eligibility": "Farmers in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Himachal Pradesh Organic Farming Scheme",
+        "description": "Promotes organic farming and provides financial assistance for certification and conversion to organic practices.",
+        "eligibility": "Farmers practicing organic farming in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Mukhya Mantri Kisan Vikas Yojana",
+        "description": "Offers subsidies and financial aid for agricultural development activities.",
+        "eligibility": "Farmers in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Himachal Pradesh Horticulture Development Scheme",
+        "description": "Provides financial assistance for the development of horticulture and floriculture.",
+        "eligibility": "Farmers involved in horticulture in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Fisheries Development Scheme",
+        "description": "Supports the development of fisheries and aquaculture in Himachal Pradesh.",
+        "eligibility": "Fishermen and fish farmers in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Himachal Pradesh Soil Health Management Scheme",
+        "description": "Provides subsidies and support for soil testing and soil health improvement.",
+        "eligibility": "Farmers in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Agroforestry Promotion Scheme",
+        "description": "Encourages farmers to plant trees alongside crops to increase farm income and enhance biodiversity.",
+        "eligibility": "Farmers in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Himachal Pradesh Animal Husbandry Scheme",
+        "description": "Provides financial assistance for the development of livestock farming and animal health services.",
+        "eligibility": "Farmers and livestock owners in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    },
+    {
+        "name": "Mukhya Mantri Krishi Ashirwad Yojana",
+        "description": "Offers financial support to farmers for the development of agricultural infrastructure and purchase of equipment.",
+        "eligibility": "Farmers in Himachal Pradesh.",
+        "apply_link": "https://agri.hp.gov.in/"
+    }
+]
+
+
+            
+        }
+    }
+    
+}

@@ -1,0 +1,1038 @@
+{
+  "plants": [
+    {
+      "name": "Rice",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Abundant (standing water)",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "NPK with high nitrogen content"
+      }
+    },
+    {
+      "name": "Turmeric",
+      "growth_factors": {
+        "sunlight": "Partial to Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Organic matter-rich fertilizer"
+      }
+    },
+    {
+      "name": "Mango",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "5.5 - 7.5",
+        "temperature": "24°C - 35°C",
+        "fertilizer": "NPK with high potassium during fruiting"
+      }
+    },
+    {
+      "name": "Tulsi",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Light organic fertilizer"
+      }
+    },
+    {
+      "name": "Neem",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Low to Moderate",
+        "soil_ph": "6.2 - 7.0",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Minimal requirement"
+      }
+    },
+    {
+      "name": "Chilli",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Phosphorus-rich fertilizer"
+      }
+    },
+    {
+      "name": "Marigold",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "18°C - 28°C",
+        "fertilizer": "Balanced NPK fertilizer"
+      }
+    },
+    {
+      "name": "Curry Leaf",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Organic compost monthly"
+      }
+    },
+    {
+      "name": "Jasmine",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 8.0",
+        "temperature": "20°C - 32°C",
+        "fertilizer": "Phosphorus-rich fertilizer"
+      }
+    },
+    {
+      "name": "Okra",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "22°C - 35°C",
+        "fertilizer": "NPK with high nitrogen"
+      }
+    },
+    {
+      "name": "Banana",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "High",
+        "soil_ph": "5.5 - 7.0",
+        "temperature": "15°C - 35°C",
+        "fertilizer": "Potassium-rich fertilizer"
+      }
+    },
+    {
+      "name": "Coriander",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "17°C - 25°C",
+        "fertilizer": "Light nitrogen fertilizer"
+      }
+    },
+    {
+      "name": "Mint",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 25°C",
+        "fertilizer": "Balanced liquid fertilizer"
+      }
+    },
+    {
+      "name": "Lemongrass",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Nitrogen-rich organic fertilizer"
+      }
+    },
+    {
+      "name": "Brinjal",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "5.5 - 6.8",
+        "temperature": "21°C - 30°C",
+        "fertilizer": "NPK with high phosphorus"
+      }
+    },
+    {
+      "name": "Moringa",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Low to Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "25°C - 35°C",
+        "fertilizer": "Organic compost"
+      }
+    },
+    {
+      "name": "Guava",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "5.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "NPK with micronutrients"
+      }
+    },
+    {
+      "name": "Papaya",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "22°C - 32°C",
+        "fertilizer": "Balanced NPK with calcium"
+      }
+    },
+    {
+      "name": "Lady Finger",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "24°C - 30°C",
+        "fertilizer": "Nitrogen-rich organic fertilizer"
+      }
+    },
+    {
+      "name": "Coconut Palm",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "5.5 - 7.0",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Balanced NPK with magnesium"
+      }
+    },
+    {
+      "name": "Ashwagandha",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Low",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Minimal requirement"
+      }
+    },
+    {
+      "name": "Aloe Vera",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Low",
+        "soil_ph": "6.0 - 8.0",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Low-nitrogen fertilizer"
+      }
+    },
+    {
+      "name": "Cardamom",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "High",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "18°C - 35°C",
+        "fertilizer": "Organic matter-rich fertilizer"
+      }
+    },
+    {
+      "name": "Black Pepper",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "5.5 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "NPK with organic matter"
+      }
+    },
+    {
+      "name": "Wheat",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 25°C",
+        "fertilizer": "NPK with high nitrogen during growth"
+      }
+    },
+    {
+      "name": "Mustard",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Low to Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Nitrogen and sulfur rich fertilizer"
+      }
+    },
+    {
+      "name": "Pomegranate",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "5.5 - 7.0",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Potassium rich during fruiting"
+      }
+    },
+    {
+      "name": "Sugarcane",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "High",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "High nitrogen and potassium"
+      }
+    },
+    {
+      "name": "Jackfruit",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 32°C",
+        "fertilizer": "Balanced NPK with micronutrients"
+      }
+    },
+    {
+      "name": "Bitter Gourd",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 6.7",
+        "temperature": "24°C - 32°C",
+        "fertilizer": "Balanced organic fertilizer"
+      }
+    },
+    {
+      "name": "Bottle Gourd",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Compost with NPK"
+      }
+    },
+    {
+      "name": "Ridge Gourd",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "25°C - 35°C",
+        "fertilizer": "Organic manure with NPK"
+      }
+    },
+    {
+      "name": "Spinach",
+      "growth_factors": {
+        "sunlight": "Full to Partial Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 25°C",
+        "fertilizer": "Nitrogen-rich fertilizer"
+      }
+    },
+    {
+      "name": "Fenugreek",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "18°C - 25°C",
+        "fertilizer": "Light organic fertilizer"
+      }
+    },
+    {
+      "name": "Cauliflower",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 25°C",
+        "fertilizer": "Balanced NPK with boron"
+      }
+    },
+    {
+      "name": "Cabbage",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 6.8",
+        "temperature": "15°C - 24°C",
+        "fertilizer": "Nitrogen-rich fertilizer"
+      }
+    },
+    {
+      "name": "Garlic",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "13°C - 24°C",
+        "fertilizer": "High phosphorus fertilizer"
+      }
+    },
+    {
+      "name": "Ginger",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 6.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich organic manure"
+      }
+    },
+    {
+      "name": "Sweet Potato",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "21°C - 32°C",
+        "fertilizer": "Low nitrogen, high potassium"
+      }
+    },
+    {
+      "name": "Onion",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "13°C - 25°C",
+        "fertilizer": "Nitrogen and sulfur rich"
+      }
+    },
+    {
+      "name": "Peas",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "13°C - 24°C",
+        "fertilizer": "Light phosphorus rich"
+      }
+    },
+    {
+      "name": "Radish",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "10°C - 23°C",
+        "fertilizer": "Low nitrogen fertilizer"
+      }
+    },
+    {
+      "name": "Corn",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "5.8 - 6.8",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "High nitrogen and potassium"
+      }
+    },
+    {
+      "name": "Watermelon",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "22°C - 30°C",
+        "fertilizer": "Balanced NPK with phosphorus"
+      }
+    },
+    {
+      "name": "Mushroom",
+      "growth_factors": {
+        "sunlight": "No direct sunlight",
+        "water": "High humidity",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 28°C",
+        "fertilizer": "Rich organic compost"
+      }
+    },
+    {
+      "name": "Beetroot",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 25°C",
+        "fertilizer": "Balanced NPK fertilizer"
+      }
+    },
+    {
+      "name": "Green Gram",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.2 - 7.2",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Light phosphorus rich"
+      }
+    },
+    {
+      "name": "Black Gram",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "25°C - 35°C",
+        "fertilizer": "Phosphorus and potassium rich"
+      }
+    },
+    {
+      "name": "Rose",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Regular, twice a week",
+        "soil_ph": "6.0 - 6.5",
+        "temperature": "16°C - 28°C",
+        "fertilizer": "Balanced NPK with magnesium"
+      }
+    },
+    {
+      "name": "Chrysanthemum",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.5 - 7.0",
+        "temperature": "20°C - 26°C",
+        "fertilizer": "High potassium during blooming"
+      }
+    },
+    {
+      "name": "Sunflower",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Nitrogen-rich during growth"
+      }
+    },
+    {
+      "name": "Lotus",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Aquatic (Standing water)",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Aquatic plant fertilizer tablets"
+      }
+    },
+    {
+      "name": "Hibiscus",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 6.8",
+        "temperature": "20°C - 32°C",
+        "fertilizer": "High potassium during flowering"
+      }
+    },
+    {
+      "name": "Dahlia",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.5 - 7.0",
+        "temperature": "18°C - 28°C",
+        "fertilizer": "Low nitrogen, high phosphorus"
+      }
+    },
+    {
+      "name": "Mogra",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 28°C",
+        "fertilizer": "Rich organic manure"
+      }
+    },
+    {
+      "name": "Lily",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "18°C - 26°C",
+        "fertilizer": "High phosphorus bulb fertilizer"
+      }
+    },
+    {
+      "name": "Rajnigandha",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Balanced NPK with micronutrients"
+      }
+    },
+    {
+      "name": "Champa",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Organic compost monthly"
+      }
+    },
+    {
+      "name": "Bougainvillea",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Low to Moderate",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Low nitrogen, high phosphorus"
+      }
+    },
+    {
+      "name": "Parijat",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Light organic fertilizer"
+      }
+    },
+    {
+      "name": "Pansy",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Regular",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "15°C - 23°C",
+        "fertilizer": "Balanced water-soluble fertilizer"
+      }
+    },
+    {
+      "name": "Petunia",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "18°C - 25°C",
+        "fertilizer": "Balanced liquid fertilizer"
+      }
+    },
+    {
+      "name": "Zinnia",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "5.5 - 7.5",
+        "temperature": "21°C - 29°C",
+        "fertilizer": "Low nitrogen fertilizer"
+      }
+    },
+    {
+      "name": "Periwinkle",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Light balanced fertilizer"
+      }
+    },
+    {
+      "name": "Cosmos",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "18°C - 26°C",
+        "fertilizer": "Low to moderate feeding"
+      }
+    },
+    {
+      "name": "Aster",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "5.8 - 6.5",
+        "temperature": "18°C - 26°C",
+        "fertilizer": "Balanced NPK during growth"
+      }
+    },
+    {
+      "name": "Gladiolus",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "6.0 - 6.8",
+        "temperature": "20°C - 27°C",
+        "fertilizer": "High phosphorus bulb fertilizer"
+      }
+    },
+    {
+      "name": "Gaillardia",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Low to Moderate",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "18°C - 28°C",
+        "fertilizer": "Light balanced fertilizer"
+      }
+    },
+    {
+      "name": "Orchid",
+      "growth_factors": {
+        "sunlight": "Bright Indirect Light",
+        "water": "Moderate",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "20°C - 28°C",
+        "fertilizer": "Specialized orchid fertilizer"
+      }
+    },
+    {
+      "name": "Anthurium",
+      "growth_factors": {
+        "sunlight": "Bright Indirect Light",
+        "water": "Regular",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "20°C - 28°C",
+        "fertilizer": "High phosphorus fertilizer"
+      }
+    },
+    {
+      "name": "Water Lily",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Aquatic (Standing water)",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Aquatic plant tablets"
+      }
+    },
+    {
+      "name": "Crossandra",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich organic manure"
+      }
+    },
+    {
+      "name": "Saffron",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 8.0",
+        "temperature": "10°C - 20°C",
+        "fertilizer": "Well-rotted manure before planting",
+        "special_care": "Needs well-draining soil, grows from corms"
+      }
+    },
+    {
+      "name": "Bay Leaf",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "18°C - 30°C",
+        "fertilizer": "Light organic fertilizer",
+        "special_care": "Regular pruning needed"
+      }
+    },
+    {
+      "name": "Amla",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "NPK with micronutrients",
+        "special_care": "Deep watering during fruit development"
+      }
+    },
+    {
+      "name": "Bamboo",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 6.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "High nitrogen fertilizer",
+        "special_care": "Root barrier recommended"
+      }
+    },
+    {
+      "name": "Star Fruit",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "21°C - 32°C",
+        "fertilizer": "Balanced NPK with magnesium",
+        "special_care": "Protection from strong winds"
+      }
+    },
+    {
+      "name": "Dragon Fruit",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Low nitrogen, high potassium",
+        "special_care": "Requires support structure"
+      }
+    },
+    {
+      "name": "Wood Apple",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Organic manure annually",
+        "special_care": "Deep soil preparation needed"
+      }
+    },
+    {
+      "name": "Custard Apple",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 32°C",
+        "fertilizer": "Rich in phosphorus and potassium",
+        "special_care": "Regular pruning after harvest"
+      }
+    },
+    {
+      "name": "Long Pepper",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich organic matter",
+        "special_care": "Requires climbing support"
+      }
+    },
+    {
+      "name": "Stevia",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Light organic fertilizer",
+        "special_care": "Regular harvesting promotes growth"
+      }
+    },
+    {
+      "name": "Butterfly Pea",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Balanced organic fertilizer",
+        "special_care": "Needs support for climbing"
+      }
+    },
+    {
+      "name": "Indian Madder",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Rich organic compost",
+        "special_care": "Good drainage essential"
+      }
+    },
+    {
+      "name": "Betel Leaf",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "15°C - 35°C",
+        "fertilizer": "High nitrogen organic fertilizer",
+        "special_care": "Requires support and shade"
+      }
+    },
+    {
+      "name": "Indian Gooseberry",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.5 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "NPK with zinc",
+        "special_care": "Annual pruning needed"
+      }
+    },
+    {
+      "name": "Indian Sarsaparilla",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich organic matter",
+        "special_care": "Climbing support required"
+      }
+    },
+    {
+      "name": "Indian Nightshade",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Regular",
+        "soil_ph": "5.5 - 6.8",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Balanced NPK fertilizer",
+        "special_care": "Regular pruning needed"
+      }
+    },
+    {
+      "name": "Wild Asparagus",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich compost",
+        "special_care": "Deep soil preparation"
+      }
+    },
+    {
+      "name": "Indian Sorrel",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 25°C",
+        "fertilizer": "Light organic fertilizer",
+        "special_care": "Regular harvesting needed"
+      }
+    },
+    {
+      "name": "Glory Lily",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Bulb fertilizer",
+        "special_care": "Support for climbing needed"
+      }
+    },
+    {
+      "name": "Sweet Flag",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "High",
+        "soil_ph": "5.5 - 6.5",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich organic matter",
+        "special_care": "Grows well in wet conditions"
+      }
+    },
+    {
+      "name": "Indian Gentian",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 25°C",
+        "fertilizer": "Light balanced fertilizer",
+        "special_care": "Well-draining soil essential"
+      }
+    },
+    {
+      "name": "Sea Holly",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Low to Moderate",
+        "soil_ph": "6.0 - 7.5",
+        "temperature": "20°C - 35°C",
+        "fertilizer": "Sandy soil with low nutrients",
+        "special_care": "Salt-tolerant plant"
+      }
+    },
+    {
+      "name": "Indian Pennywort",
+      "growth_factors": {
+        "sunlight": "Partial Shade",
+        "water": "High",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich organic matter",
+        "special_care": "Prefers moist conditions"
+      }
+    },
+    {
+      "name": "Indian Birthwort",
+      "growth_factors": {
+        "sunlight": "Partial to Full Shade",
+        "water": "Regular",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "20°C - 30°C",
+        "fertilizer": "Rich organic compost",
+        "special_care": "Climbing support needed"
+      }
+    },
+    {
+      "name": "Tomato",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 6.8",
+        "temperature": "21°C - 24°C",
+        "fertilizer": "Balanced fertilizer every 2 weeks"
+      }
+    },
+    {
+      "name": "Cucumber",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate to High",
+        "soil_ph": "5.5 - 7.0",
+        "temperature": "21°C - 35°C",
+        "fertilizer": "NPK 5-10-10, every 3 weeks"
+      }
+    },
+    {
+      "name": "Carrot",
+      "growth_factors": {
+        "sunlight": "Full Sun to Partial Shade",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "16°C - 21°C",
+        "fertilizer": "NPK 5-10-10, light application"
+      }
+    },
+    {
+      "name": "Lettuce",
+      "growth_factors": {
+        "sunlight": "Partial Shade to Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "15°C - 21°C",
+        "fertilizer": "NPK 5-5-5, light feeding"
+      }
+    },
+    {
+      "name": "Pepper",
+      "growth_factors": {
+        "sunlight": "Full Sun",
+        "water": "Moderate",
+        "soil_ph": "6.0 - 7.0",
+        "temperature": "21°C - 32°C",
+        "fertilizer": "NPK 5-10-10, every 4-6 weeks"
+    }
+  }
+  ]
+}

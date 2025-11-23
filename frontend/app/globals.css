@@ -1,0 +1,419 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+  
+@layer utilities {
+  .neon-text {
+    color: #030d01; /* Neon green */
+    text-shadow: 
+      0 0 5px #39ff14, 
+      0 0 10px #39ff14, 
+      0 0 20px #39ff14, 
+      0 0 40px #32cd32, 
+      0 0 80px #32cd32, 
+      0 0 90px #32cd32, 
+      0 0 100px #32cd32;
+    animation: neon-flicker 1.5s infinite alternate;
+  }
+
+  @keyframes neon-flicker {
+    0% {
+      text-shadow: 
+        0 0 5px #39ff14, 
+        0 0 10px #39ff14, 
+        0 0 20px #39ff14, 
+        0 0 40px #32cd32, 
+        0 0 80px #32cd32, 
+        0 0 90px #32cd32, 
+        0 0 100px #32cd32;
+    }
+    50% {
+      text-shadow: 
+        0 0 5px #bdda15, 
+        0 0 15px #bdda15, 
+        0 0 25px #bdda15, 
+        0 0 50px #d9ff00, 
+        0 0 100px #d9ff00, 
+        0 0 110px #d9ff00, 
+        0 0 120px #d9ff00;
+    }
+    100% {
+      text-shadow: 
+        0 0 5px #39ff14, 
+        0 0 10px #39ff14, 
+        0 0 20px #39ff14, 
+        0 0 40px #32cd32, 
+        0 0 80px #32cd32, 
+        0 0 90px #32cd32, 
+        0 0 100px #32cd32;
+    }
+  }
+}
+@layer utilities {
+  .glitch {
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    text-transform: uppercase;
+    overflow: hidden;
+    color: white;
+    opacity: 0; /* Start hidden for reveal animation */
+    transform: translateY(20px); /* Start below for reveal animation */
+  }
+
+  .glitch::before,
+  .glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
+    animation: glitch 2s infinite;
+  }
+
+  .glitch::before {
+    left: 2px;
+    text-shadow: -2px 0 red;
+    animation: glitch 2s infinite;
+  }
+
+  .glitch::after {
+    left: -2px;
+    text-shadow: -2px 0 blue;
+    animation: glitch 2s infinite;
+    animation-delay: 0.2s;
+  }
+
+  @keyframes glitch {
+    0% {
+      clip: rect(0, 900px, 0, 0);
+    }
+    10% {
+      clip: rect(10px, 900px, 50px, 0);
+    }
+    20% {
+      clip: rect(5px, 900px, 40px, 0);
+    }
+    30% {
+      clip: rect(20px, 900px, 70px, 0);
+    }
+    40% {
+      clip: rect(15px, 900px, 60px, 0);
+    }
+    50% {
+      clip: rect(0, 900px, 0, 0);
+    }
+    60% {
+      clip: rect(10px, 900px, 50px, 0);
+    }
+    70% {
+      clip: rect(5px, 900px, 40px, 0);
+    }
+    80% {
+      clip: rect(20px, 900px, 70px, 0);
+    }
+    90% {
+      clip: rect(15px, 900px, 60px, 0);
+    }
+    100% {
+      clip: rect(0, 900px, 0, 0);
+    }
+  }
+}
+
+/* Global styles */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.loading-wrapper {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px; /* Adjust size as needed */
+  height: 200px;
+  background-color: transparent;
+  border: none;
+  -webkit-user-select: none;
+}
+
+.box-wrap {
+  position: relative;
+  width: 70%;
+  height: 70%;
+  margin: calc((100% - 70%) / 2);
+  transform: rotate(-45deg);
+}
+
+.box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to right, #141562, #486FBC, #EAB5A1, #8DD6FF, #4973C9, #D07CA7, #F4915E, #F5919E, #B46F89, #141562, #486FBC);
+  background-position: 0% 50%;
+  background-size: 1000% 1000%;
+  visibility: hidden;
+}
+
+.box.one {
+  animation: moveGradient 15s infinite, oneMove 3.5s infinite;
+}
+.box.two {
+  animation: moveGradient 15s infinite, twoMove 3.5s .15s infinite;
+}
+.box.three {
+  animation: moveGradient 15s infinite, threeMove 3.5s .3s infinite;
+}
+.box.four {
+  animation: moveGradient 15s infinite, fourMove 3.5s .575s infinite;
+}
+.box.five {
+  animation: moveGradient 15s infinite, fiveMove 3.5s .725s infinite;
+}
+.box.six {
+  animation: moveGradient 15s infinite, sixMove 3.5s .875s infinite;
+}
+
+@keyframes moveGradient {
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes oneMove {
+  0% { visibility: visible; clip-path: inset(0% 35% 70% round 5%); }
+  14.2857% { clip-path: inset(0% 35% 70% round 5%); }
+  28.5714% { clip-path: inset(35% round 5%); }
+  42.8571% { clip-path: inset(35% 70% 35% 0 round 5%); }
+  57.1428% { clip-path: inset(35% 70% 35% 0 round 5%); }
+  71.4285% { clip-path: inset(0% 70% 70% 0 round 5%); }
+  85.7142% { clip-path: inset(0% 70% 70% 0 round 5%); }
+  100% { clip-path: inset(0% 35% 70% round 5%); }
+}
+
+/* Repeat similarly for twoMove, threeMove, etc. */
+
+/* You can copy and paste other keyframes (twoMove, threeMove, etc.) here */
+@keyframes box-animation {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+}
+
+/* Add this in your global CSS or a component-specific CSS */
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-blink {
+  animation: blink 1.5s infinite;
+}
+
+
+/*glicth effect*/
+/* Glitch Container */
+.glitch-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Glitch Text */
+.glitch-text {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 2px 2px 0 #00ffea, -2px -2px 0 #ff007a;
+  animation: glitch 2s infinite;
+}
+
+/* Data Attribute for Glitch Content */
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-glitch);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.7;
+  clip-path: inset(0 100% 0 0);
+}
+
+/* Glitch Before (Red Offset) */
+.glitch-text::before {
+  left: -2px;
+  text-shadow: -2px 0 red;
+  animation: glitch-before 1.5s infinite;
+}
+
+/* Glitch After (Blue Offset) */
+.glitch-text::after {
+  left: 2px;
+  text-shadow: 2px 0 blue;
+  animation: glitch-after 1.5s infinite;
+}
+
+/* Keyframes for Glitch */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+/* Keyframes for Glitch Before */
+@keyframes glitch-before {
+  0%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+  10% {
+    clip-path: inset(10% 0 20% 0);
+  }
+  20% {
+    clip-path: inset(20% 0 10% 0);
+  }
+  30% {
+    clip-path: inset(0 10% 0 10%);
+  }
+  40% {
+    clip-path: inset(0 5% 5% 0);
+  }
+  50% {
+    clip-path: inset(5% 5% 0 5%);
+  }
+}
+
+/* Keyframes for Glitch After */
+@keyframes glitch-after {
+  0%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+  10% {
+    clip-path: inset(0 0 10% 10%);
+  }
+  20% {
+    clip-path: inset(5% 0 5% 5%);
+  }
+  30% {
+    clip-path: inset(10% 10% 0 0);
+  }
+  40% {
+    clip-path: inset(5% 5% 10% 0);
+  }
+  50% {
+    clip-path: inset(0 5% 5% 5%);
+  }
+}
+
+/* Agriculture theme grid pattern */
+.ag-grid-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300ff00' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Smooth hover transitions for feature cards */
+.feature-card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card-hover:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(74, 222, 128, 0.1);
+}
