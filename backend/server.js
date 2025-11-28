@@ -5,39 +5,37 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const { spawn } = require("child_process");
-require("dotenv").config();
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const axios = require("axios");
+const FormData = require("form-data");
+
+const config = require("./config");
+const logger = require("./utils/logger");
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const upload = multer({ storage: multer.memoryStorage() });
 
-// --- Middleware ---
-app.use(cors({
-  origin: process.env.FRONTEND_URL || "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
-
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-
-// --- Static file serving for uploads ---
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
-// --- Environment Variables ---
-const JWT_SECRET = process.env.JWT_SECRET || "your_secret_key_change_this";
-const TREFLE_API_KEY = process.env.TREFLE_API_KEY || "QMOwjCuz6MFD3RBsVcPfdumFQ2UHRIxH8PRs74CTWZo";
-const PLANTNET_API_KEY = process.env.PLANTNET_API_KEY || "2b104Pzl4E7xehCZ0tAk1FFe";
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017/agriconnect";
-
-// --- MongoDB Connection ---
-mongoose
-  .connect(MONGODB_URI, { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
+app.use(
+  cors({
+    origin: config.frontendUrl,
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    credentials: true,
   })
-  .then(() => console.log("MongoDB connected successfully"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+);
+
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
+
+mongoose
+  .connect(config.mongoUri)
+  .then(() => logger.info("MongoDB connected successfully"))
+  .catch((error) => {
+    logger.error("MongoDB connection error", { error });
+    process.exit(1);
+  });
 
 // --- User Schema ---
 const userSchema = new mongoose.Schema({
@@ -58,6 +56,18 @@ const discussionSchema = new mongoose.Schema({
 });
 const Discussion = mongoose.model("Discussion", discussionSchema);
 
+const orderSchema = new mongoose.Schema(
+  {
+    paymentId: String,
+    items: { type: Array, default: [] },
+    amount: Number,
+    status: { type: String, default: "Pending" },
+    date: { type: Date, default: Date.now },
+  },
+  { timestamps: true }
+);
+const Order = mongoose.model("Order", orderSchema);
+
 // --- Routes ---
 
 // 1. Root Endpoint
@@ -65,11 +75,8 @@ app.get("/", (req, res) => {
   res.send("Success");
 });
 
-const multer = require("multer");
-
-
 // Plant Identification Route (Pl@ntNet API)
-app.post("/api/identify-plant", upload.single('images'), async (req, res) => {
+app.post("/api/identify-plant", upload.single("images"), async (req, res) => {
   const { organs } = req.body; // organs (e.g., leaf, flower)
   const imageFile = req.file; // The uploaded image file
 
@@ -80,7 +87,10 @@ app.post("/api/identify-plant", upload.single('images'), async (req, res) => {
   try {
     const formData = new FormData();
     formData.append("organs", organs);
-    formData.append("images", fs.createReadStream(imageFile.path)); // Using the image file path for sending it to the Pl@ntNet API
+    formData.append("images", imageFile.buffer, {
+      filename: imageFile.originalname || "upload.jpg",
+      contentType: imageFile.mimetype,
+    });
 
     const response = await axios.post(
       "https://my.plantnet.org/v2/identify/all", // Pl@ntNet API endpoint
@@ -88,14 +98,14 @@ app.post("/api/identify-plant", upload.single('images'), async (req, res) => {
       {
         headers: {
           ...formData.getHeaders(),
-          Authorization: `Bearer ${PLANTNET_API_KEY}`,
+          Authorization: `Bearer ${config.apiKeys.plantNet}`,
         },
       }
     );
 
     res.status(200).json(response.data);
   } catch (error) {
-    console.error("Error identifying plant with Pl@ntNet API:", error);
+    logger.error("Error identifying plant with Pl@ntNet API", { error });
     res.status(500).json({ message: "Error identifying plant. Please try again later.", error: error.message });
   }
 });
@@ -109,11 +119,11 @@ app.get("/api/plant-search", async (req, res) => {
 
   try {
     const response = await axios.get("https://trefle.io/api/v1/plants/search", {
-      params: { q: plantName, token: TREFLE_API_KEY },
+      params: { q: plantName, token: config.apiKeys.trefle },
     });
     res.json(response.data);
   } catch (error) {
-    console.error("Error fetching data from Trefle API:", error);
+    logger.error("Error fetching data from Trefle API", { error });
     res.status(500).json({ message: "Error fetching data from Trefle API", error: error.message });
   }
 });
@@ -138,7 +148,7 @@ app.post("/api/auth/sign-up", async (req, res) => {
 
     res.status(201).json({ message: "Sign-up successful! Please log in." });
   } catch (error) {
-    console.error("Error during sign-up:", error);
+    logger.error("Error during sign-up", { error });
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 });
@@ -162,10 +172,14 @@ app.post("/api/auth/login", async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials." });
     }
 
-    const token = jwt.sign({ userId: user._id, email: user.email }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign(
+      { userId: user._id, email: user.email },
+      config.jwtSecret,
+      { expiresIn: config.tokenExpirySeconds }
+    );
     res.status(200).json({ message: "Login successful", token });
   } catch (error) {
-    console.error("Error during login:", error);
+    logger.error("Error during login", { error });
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 });
@@ -176,7 +190,7 @@ app.get("/api/discussions", async (req, res) => {
     const discussions = await Discussion.find().sort({ date: -1 });
     res.json(discussions);
   } catch (error) {
-    console.error("Error fetching discussions:", error);
+    logger.error("Error fetching discussions", { error });
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 });
@@ -196,7 +210,7 @@ app.post("/api/discussions", async (req, res) => {
     await newDiscussion.save();
     res.status(201).json(newDiscussion);
   } catch (error) {
-    console.error("Error creating discussion:", error);
+    logger.error("Error creating discussion", { error });
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 });
@@ -207,7 +221,7 @@ app.get("/api/orders", async (req, res) => {
     const orders = await Order.find(); // Fetch all orders from MongoDB
     res.status(200).json(orders);
   } catch (error) {
-    console.error("Error fetching orders:", error);
+    logger.error("Error fetching orders", { error });
     res.status(500).json({ message: "Server error. Please try again later." });
   }
 });
@@ -219,19 +233,11 @@ app.post("/api/orders", async (req, res) => {
     await newOrder.save();
     res.status(201).json({ message: "Order created successfully", order: newOrder });
   } catch (error) {
-    console.error("Error saving order:", error);
+    logger.error("Error saving order", { error });
     res.status(500).json({ message: "Error saving order" });
   }
 });
 
-
-
-const multer = require("multer");
-const { spawn } = require("child_process");
-const path = require("path");
-const fs = require("fs");
-
-const upload = multer({ storage: multer.memoryStorage() });
 
 app.post("/api/predict", upload.single("image"), (req, res) => {
   if (!req.file) {
@@ -260,14 +266,12 @@ app.post("/api/predict", upload.single("image"), (req, res) => {
     if (code === 0) {
       res.json({ prediction: result.trim() });
     } else {
-      console.error(`Python Script Error: ${errorMessage}`);
+      logger.error("Python script error", { error: errorMessage });
       res.status(500).json({ error: "Prediction failed", details: errorMessage });
     }
   });
 });
 
-
-app.listen(5000, () => console.log("Server running on port 5000"));
-
-// --- Start Server ---
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(config.port, () => {
+  logger.info(`Server running on http://localhost:${config.port} (${config.env})`);
+});
