@@ -12,6 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       const discussions = await Discussion.find().sort({ createdAt: -1 });
       res.status(200).json(discussions);
     } catch (error) {
+      console.error('Failed to fetch discussions', error);
       res.status(500).json({ message: 'Failed to fetch discussions' });
     }
   } else if (req.method === 'POST') {
@@ -30,6 +31,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await newDiscussion.save();
       res.status(201).json(newDiscussion);
     } catch (error) {
+      console.error('Failed to create discussion', error);
       res.status(500).json({ message: 'Failed to create discussion' });
     }
   } else {

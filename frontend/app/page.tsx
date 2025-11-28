@@ -1,17 +1,17 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Leaf, Trees, Home, ArrowRight } from "lucide-react";
+import { Leaf, Trees, Home, ArrowRight, Sprout, ClipboardCheck } from "lucide-react";
 import Link from "next/link";
-import { getUserSession, saveUserSession, clearUserSession } from "@/app/utils/auth";
+import { getUserSession, clearUserSession } from "@/app/utils/auth";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
 import AboutSection from "@/components/AboutSection";
 import GovernmentScheme from "@/components/GovernmentScheme";
 import Community from "@/components/Community";
 import Contact from "@/components/Contact";
-import ScrollProgress, { ScrollProgressWithSections } from "@/components/ScrollProgress";
-import PageTransition, { StaggerChildren } from "@/components/PageTransition";
+import { ScrollProgressWithSections } from "@/components/ScrollProgress";
+import PageTransition from "@/components/PageTransition";
 import "@/app/globals.css";
 
 
@@ -19,7 +19,6 @@ export default function AgriConnect() {
   const [user, setUser] = useState<{ username: string } | null>(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [loading, setLoading] = useState(true);  // Keep loading true until everything is ready
   const router = useRouter();
 
   // Define sections for scroll progress
@@ -35,13 +34,9 @@ export default function AgriConnect() {
   // Check if it's the first load or if a login has just occurred
   useEffect(() => {
     const session = getUserSession();
-    if (session) {
+    if (session?.username) {
       setUser({ username: session.username });
     }
-
-    // Simulating data load
-    const timer = setTimeout(() => setLoading(false), 3000); // Adjust duration as needed
-    return () => clearTimeout(timer);
   }, []);
 
   // Scroll Behavior
@@ -110,7 +105,7 @@ export default function AgriConnect() {
                 <Leaf className="w-8 h-8 text-green-600 transition-transform duration-300" />
               </motion.div>
               <span className="text-2xl font-semibold tracking-tight text-slate-900">
-                Agri<span className="font-medium">Connect</span>
+                AgriConnect<span className="font-medium">(TerraSyntro)</span>
               </span>
             </Link>
           </motion.div>
@@ -260,7 +255,7 @@ export default function AgriConnect() {
                   AgriConnect combines actionable insights, trusted expertise, and a vibrant marketplace to help every grower scale sustainably.
                 </p>
 
-                <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                   {!user && (
                     <motion.button
                       onClick={() => router.push("/sign-up")}
@@ -279,6 +274,14 @@ export default function AgriConnect() {
                     whileTap={{ scale: 0.98 }}
                   >
                     Discover the platform
+                  </motion.button>
+                  <motion.button
+                    onClick={() => router.push("/weather")}
+                    className="inline-flex items-center justify-center rounded-full border border-emerald-200 bg-emerald-50 px-7 py-3 text-sm font-semibold text-emerald-700 transition-all duration-300 hover:bg-emerald-100"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    View weather insights
                   </motion.button>
                 </div>
 
@@ -349,19 +352,26 @@ export default function AgriConnect() {
                   <p className="text-xs text-slate-500">Active expert conversations weekly.</p>
                 </motion.div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8, delay: 0.8 }}
-                  className="absolute -bottom-10 left-6 w-48 rounded-2xl border border-slate-200 bg-white p-4 shadow-lg"
+                <Link
+                  href="/weather"
+                  aria-label="Open weather insights"
+                  className="absolute -bottom-10 left-6 block w-48"
                 >
-                  <span className="text-xs font-medium text-slate-500">Weather Sync</span>
-                  <div className="mt-2 flex items-end gap-2">
-                    <p className="text-3xl font-semibold text-slate-900">72°F</p>
-                    <span className="text-xs text-slate-500">Field average</span>
-                  </div>
-                  <p className="mt-2 text-xs text-slate-500">Automated scheduling for irrigation.</p>
-                </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.8 }}
+                    className="rounded-2xl border border-slate-200 bg-white p-4 shadow-lg transition-colors hover:border-emerald-200 hover:bg-emerald-50"
+                  >
+                    <span className="text-xs font-medium text-slate-500">Weather Sync</span>
+                    <div className="mt-2 flex items-end gap-2">
+                      <p className="text-3xl font-semibold text-slate-900">72°F</p>
+                      <span className="text-xs text-slate-500">Field average</span>
+                    </div>
+                    <p className="mt-2 text-xs text-slate-500">Automated scheduling for irrigation.</p>
+                    <p className="mt-2 text-[10px] font-semibold text-emerald-600">Tap for full forecast</p>
+                  </motion.div>
+                </Link>
               </motion.div>
             </div>
           </div>
@@ -390,9 +400,9 @@ export default function AgriConnect() {
           className="fixed bottom-8 right-8 z-30 hidden w-64 rounded-3xl border border-slate-200 bg-white/95 p-5 shadow-2xl backdrop-blur lg:block"
         >
           <span className="text-xs font-medium uppercase tracking-[0.3em] text-slate-500">Need help?</span>
-          <p className="mt-3 text-base font-semibold text-slate-900">Identify any crop in seconds.</p>
+          <p className="mt-3 text-base font-semibold text-slate-900">Diagnose plant diseases instantly.</p>
           <p className="mt-2 text-xs text-slate-500">
-            Upload a snapshot and our AI will guide you with treatment pathways.
+            Upload a symptomatic leaf photo and get prescription-grade guidance.
           </p>
           <Link href="/plant-identification" className="mt-4 inline-flex">
             <motion.button
@@ -401,7 +411,7 @@ export default function AgriConnect() {
               whileTap={{ scale: 0.96 }}
             >
               <Trees className="h-4 w-4" />
-              Plant ID
+              Disease Lab
             </motion.button>
           </Link>
         </motion.div>
@@ -435,7 +445,7 @@ export default function AgriConnect() {
           </motion.div>
 
           <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl relative z-10">
-            {/* Disease Detection Feature */}
+            {/* Crop Recommendation Feature */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -453,25 +463,25 @@ export default function AgriConnect() {
                   transition={{ duration: 0.6 }}
                   className="relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 text-green-600 shadow-[0_12px_30px_-20px_rgba(34,197,94,0.9)]"
                 >
-                  <Leaf className="h-8 w-8" />
+                  <Sprout className="h-8 w-8" />
                 </motion.div>
 
                 {/* Content */}
                 <div className="relative z-10 mt-8">
                   <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-4 group-hover:text-green-600 transition-colors duration-300">
-                    AI Disease Detection
+                    AI Crop Recommendation
                   </h3>
                   <p className="text-slate-600 leading-relaxed mb-10">
-                    Instantly spot symptoms, surface precise diagnoses, and access treatment tips backed by agronomists—all from a single image upload.
+                    Blend soil health, weather windows, and regional insights to get planting guidance that keeps inputs lean and yields resilient.
                   </p>
 
-                  <Link href="/disease-detection">
+                  <Link href="/growth-factors">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="inline-flex items-center gap-2 rounded-full border border-green-500/70 bg-white px-6 py-3 text-sm font-semibold text-green-600 transition-all duration-300 hover:bg-green-500 hover:text-white"
                     >
-                      Start Diagnosis
+                      Get Recommendations
                       <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                         <ArrowRight className="h-5 w-5" />
                       </motion.div>
@@ -481,7 +491,7 @@ export default function AgriConnect() {
               </motion.div>
             </motion.div>
 
-            {/* Marketplace Feature */}
+            {/* Crop Management Feature */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -499,25 +509,25 @@ export default function AgriConnect() {
                   transition={{ duration: 0.6 }}
                   className="relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-green-50 text-green-600 shadow-[0_12px_30px_-20px_rgba(34,197,94,0.9)]"
                 >
-                  <Home className="h-8 w-8" />
+                  <ClipboardCheck className="h-8 w-8" />
                 </motion.div>
 
                 {/* Content */}
                 <div className="relative z-10 mt-8">
                   <h3 className="text-2xl font-semibold text-slate-900 tracking-tight mb-4 group-hover:text-green-600 transition-colors duration-300">
-                    Digital Marketplace
+                    Unified Crop Management
                   </h3>
                   <p className="text-slate-600 leading-relaxed mb-10">
-                    Bring products online, negotiate confidently, and manage fulfilment through a streamlined experience tailored for agricultural trade.
+                    Plan rotations, track field tasks, and sync inventory with fulfilment so your team stays aligned from sowing to shipment.
                   </p>
 
-                  <Link href="/marketplace">
+                  <Link href="/orders1">
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="inline-flex items-center gap-2 rounded-full border border-green-500/70 bg-white px-6 py-3 text-sm font-semibold text-green-600 transition-all duration-300 hover:bg-green-500 hover:text-white"
                     >
-                      Explore Market
+                      Manage Crops
                       <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                         <ArrowRight className="h-5 w-5" />
                       </motion.div>

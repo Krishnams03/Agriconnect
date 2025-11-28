@@ -1,7 +1,9 @@
-const jwt = require('jsonwebtoken');
-const User = require('../models/User');
+const jwt = require("jsonwebtoken");
+const User = require("../models/User");
+const config = require("../config");
+const logger = require("../utils/logger");
 
-const JWT_SECRET = process.env.JWT_SECRET || "your_secret_key_change_this";
+const JWT_SECRET = config.jwtSecret;
 
 const auth = async (req, res, next) => {
   try {
@@ -44,7 +46,7 @@ const auth = async (req, res, next) => {
     
     next();
   } catch (error) {
-    console.error('Auth middleware error:', error);
+    logger.error("Auth middleware error", { error });
     
     if (error.name === 'JsonWebTokenError') {
       return res.status(401).json({ 

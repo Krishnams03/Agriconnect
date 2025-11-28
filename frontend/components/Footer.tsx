@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { Leaf } from "lucide-react";
 
 const Footer = () => {

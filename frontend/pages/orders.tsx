@@ -37,8 +37,9 @@ export default function Orders() {
         }
 
         setOrders(data);
-      } catch (err: any) {
-        setError(err.message || "Error fetching orders");
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Error fetching orders";
+        setError(message);
         console.error("Fetch Orders Error:", err);
       } finally {
         setLoading(false);

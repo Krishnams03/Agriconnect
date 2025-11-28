@@ -1,5 +1,6 @@
-import { useState, useEffect, createContext, ReactNode } from "react";
+import { useState, useEffect, createContext, type Dispatch, type SetStateAction } from "react";
 import { useRouter } from "next/router";
+import type { AppProps } from "next/app";
 import axios from "axios";
 import Loader from "@/components/Loader"; // Import the new Loader component
 import "@/app/globals.css"; // Adjust path to your styles
@@ -9,19 +10,13 @@ interface User {
   id: string;
   name: string;
   email: string;
-  [key: string]: any; // Allow additional properties
-}
-
-// Define props for the App component
-interface AppProps {
-  Component: React.ComponentType<any>;
-  pageProps: any;
+  [key: string]: unknown; // Allow additional properties
 }
 
 // Create a UserContext with type annotations
 interface UserContextType {
   user: User | null;
-  setUser: React.Dispatch<React.SetStateAction<User | null>>;
+  setUser: Dispatch<SetStateAction<User | null>>;
 }
 
 export const UserContext = createContext<UserContextType | null>(null);

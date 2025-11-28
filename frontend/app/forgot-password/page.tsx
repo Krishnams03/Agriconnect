@@ -1,10 +1,31 @@
 ﻿"use client";
 
 import { useState } from "react";
+import axios from "axios";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Leaf, MailCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
+
+type ApiErrorResponse = {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+};
+
+const resolveApiMessage = (error: unknown, fallback: string) => {
+  if (typeof error === "object" && error !== null) {
+    const candidate = error as ApiErrorResponse;
+    if (typeof candidate.response?.data?.message === "string") {
+      return candidate.response.data.message;
+    }
+  }
+  return fallback;
+};
 
 const supportTips = [
   "You’ll receive a secure link that expires in 15 minutes.",
@@ -16,6 +37,7 @@ export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
+  const [devResetLink, setDevResetLink] = useState<string | null>(null);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -23,12 +45,20 @@ export default function ForgotPasswordPage() {
     setIsSubmitting(true);
 
     try {
-      // TODO: Replace with real API call once endpoint is available.
-      await new Promise((resolve) => setTimeout(resolve, 1600));
-      setStatusMessage("We’ve sent a password reset email with the next steps.");
+      const normalizedEmail = email.trim().toLowerCase();
+      const response = await axios.post<{ message?: string; resetUrl?: string }>(
+        `${API_BASE_URL}/api/auth/forgot-password`,
+        { email: normalizedEmail }
+      );
+      setStatusMessage(
+        response.data.message ?? "We’ve sent a password reset email with the next steps."
+      );
+      setDevResetLink(response.data.resetUrl ?? null);
       setEmail("");
-    } catch (error) {
-      setStatusMessage("Something went wrong. Please try again in a moment.");
+    } catch (error: unknown) {
+      const fallback = resolveApiMessage(error, "Something went wrong. Please try again in a moment.");
+      setStatusMessage(fallback);
+      setDevResetLink(null);
     } finally {
       setIsSubmitting(false);
     }
@@ -129,6 +159,23 @@ export default function ForgotPasswordPage() {
               >
                 {statusMessage}
               </motion.div>
+            )}
+
+            {devResetLink && (
+              <div className="mb-5 space-y-2 rounded-2xl border border-amber-200 bg-amber-50/70 p-4 text-sm text-amber-800">
+                <p className="font-semibold">Development reset link</p>
+                <p className="text-xs text-amber-700">
+                  SMTP isn’t configured, so use this link manually while testing. Send it only to the account owner.
+                </p>
+                <Link
+                  href={devResetLink}
+                  className="inline-flex items-center text-amber-900 underline"
+                  prefetch={false}
+                >
+                  Open reset password page
+                </Link>
+                <code className="block break-all rounded bg-white/70 p-2 text-xs text-slate-700">{devResetLink}</code>
+              </div>
             )}
 
             <form onSubmit={handleSubmit} className="space-y-5">

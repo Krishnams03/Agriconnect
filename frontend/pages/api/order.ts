@@ -7,10 +7,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/agrico
 // Connect to MongoDB
 const connectDB = async () => {
   if (mongoose.connection.readyState >= 1) return;
-  await mongoose.connect(MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  } as any);
+  await mongoose.connect(MONGODB_URI);
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -20,7 +17,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
       const orders = await Order.find(); // Fetch all orders from DB
       return res.status(200).json(orders);
-    } catch (err) {
+    } catch (err: unknown) {
       console.error("Error fetching orders:", err);
       return res.status(500).json({ message: "Error fetching orders" });
     }
@@ -35,7 +32,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await newOrder.save(); // Save order to DB
 
       return res.status(201).json({ message: "Order created successfully", order: newOrder });
-    } catch (err) {
+    } catch (err: unknown) {
       console.error("Error saving order:", err);
       return res.status(500).json({ message: "Error saving order" });
     }

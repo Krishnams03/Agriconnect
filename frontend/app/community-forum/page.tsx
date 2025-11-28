@@ -243,7 +243,7 @@
 import React, { useState } from "react";
 import { Discussion } from "@/types/Discussion";
 import Link from "next/link";
-import { Leaf, Info, Menu, X } from "lucide-react";
+import { Leaf, Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import Footer from "@/components/Footer";
 

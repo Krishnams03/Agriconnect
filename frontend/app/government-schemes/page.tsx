@@ -1,15 +1,32 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Leaf, Info, Menu, X } from "lucide-react";
+import { Leaf, Menu, X } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
 import Loader from "@/components/Loader";
+import { logUserActivity } from "@/lib/activity";
+
+interface Scheme {
+  name: string;
+  description: string;
+  objective?: string;
+  details?: string;
+  funding?: string;
+  eligibility?: string;
+  apply_link: string;
+}
+
+interface SchemesResponse {
+  schemes: {
+    national?: Scheme[];
+    state?: Record<string, Scheme[]>;
+  };
+}
 
 const containerVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -29,7 +46,7 @@ const itemVariants = {
 };
 
 export default function GovernmentSchemesPage() {
-  const [schemesData, setSchemesData] = useState<any>(null);
+  const [schemesData, setSchemesData] = useState<SchemesResponse | null>(null);
   const [selectedState, setSelectedState] = useState<string | undefined>();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loading, setLoading] = useState(true);  // Keep loading true until everything is ready
@@ -39,12 +56,31 @@ export default function GovernmentSchemesPage() {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleSchemeApply = async (
+    schemeName: string,
+    link: string,
+    scope: "national" | "state",
+    additionalMeta?: Record<string, unknown>
+  ) => {
+    await logUserActivity({
+      type: "scheme",
+      title: `Opened ${schemeName}`,
+      details: `Viewing ${scope} scheme details`,
+      meta: {
+        link,
+        scope,
+        ...(scope === "state" && selectedState ? { state: selectedState } : {}),
+        ...additionalMeta,
+      },
+    });
+  };
+
   useEffect(() => {
     // Fetch schemes data from JSON
     fetch("/data/schemes.json")
-      .then((response) => response.json())
-      .then((data) => setSchemesData(data))
-      .catch((error) => console.error("Error fetching schemes data:", error));
+        .then((response) => response.json() as Promise<SchemesResponse>)
+        .then((data) => setSchemesData(data))
+        .catch((error: unknown) => console.error("Error fetching schemes data:", error));
   }, []);
 
   if (!schemesData) {
@@ -56,7 +92,7 @@ export default function GovernmentSchemesPage() {
     );
   }
 
-  const { national = [], state = {} } = schemesData.schemes;
+  const { national = [], state: stateSchemes = {} } = schemesData.schemes;
   if (loading) {
     return <Loader />;
   }
@@ -153,7 +189,7 @@ export default function GovernmentSchemesPage() {
                     animate="visible"
                     className="space-y-6"
                   >
-                    {national.map((scheme: any, index: number) => (
+                    {national.map((scheme, index) => (
                       <motion.li
                         key={index}
                         variants={itemVariants}
@@ -168,6 +204,10 @@ export default function GovernmentSchemesPage() {
                         <div className="mt-4 flex justify-between">
                           <Link
                             href={scheme.apply_link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            prefetch={false}
+                            onClick={() => handleSchemeApply(scheme.name, scheme.apply_link, "national", { objective: scheme.objective })}
                             className="text-green-600 hover:underline"
                           >
                             Apply Now
@@ -188,7 +228,7 @@ export default function GovernmentSchemesPage() {
                       <SelectValue placeholder="Select your state" />
                     </SelectTrigger>
                     <SelectContent>
-                      {Object.keys(state).map((stateName) => (
+                      {Object.keys(stateSchemes).map((stateName) => (
                         <SelectItem key={stateName} value={stateName}>
                           {stateName}
                         </SelectItem>
@@ -203,7 +243,7 @@ export default function GovernmentSchemesPage() {
                       animate="visible"
                       className="space-y-6"
                     >
-                      {state[selectedState]?.map((scheme: any, index: number) => (
+                      {stateSchemes[selectedState]?.map((scheme, index) => (
                         <motion.li
                           key={index}
                           variants={itemVariants}
@@ -215,6 +255,10 @@ export default function GovernmentSchemesPage() {
                           <div className="mt-4 flex justify-between">
                             <Link
                               href={scheme.apply_link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              prefetch={false}
+                              onClick={() => handleSchemeApply(scheme.name, scheme.apply_link, "state")}
                               className="text-green-600 hover:underline"
                             >
                               Apply Now

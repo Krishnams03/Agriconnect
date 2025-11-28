@@ -5,6 +5,27 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Leaf, Lock } from "lucide-react";
+import axios from "axios";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
+
+type ApiErrorResponse = {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+};
+
+const resolveApiMessage = (error: unknown, fallback: string) => {
+  if (typeof error === "object" && error !== null) {
+    const candidate = error as ApiErrorResponse;
+    if (typeof candidate.response?.data?.message === "string") {
+      return candidate.response.data.message;
+    }
+  }
+  return fallback;
+};
 
 export default function ResetPasswordPage() {
   return (
@@ -18,6 +39,7 @@ function ResetPasswordContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const token = searchParams?.get("token") ?? "";
+  const emailParam = searchParams?.get("email") ?? "";
 
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -30,6 +52,11 @@ function ResetPasswordContent() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError(null);
+
+    if (!token || !emailParam) {
+      setError("Reset link is invalid or incomplete.");
+      return;
+    }
 
     if (password !== confirmPassword) {
       setError("Passwords do not match.");
@@ -44,15 +71,19 @@ function ResetPasswordContent() {
     setIsLoading(true);
 
     try {
-      // TODO: Replace with real API call once endpoint is available.
-      await new Promise((resolve) => setTimeout(resolve, 1800));
+      await axios.post(`${API_BASE_URL}/api/auth/reset-password`, {
+        token,
+        email: emailParam,
+        newPassword: password,
+      });
       setIsSuccess(true);
 
       setTimeout(() => {
         router.push("/log-in");
       }, 2500);
-    } catch (err) {
-      setError("Failed to update password. Please try again.");
+    } catch (error: unknown) {
+      const message = resolveApiMessage(error, "Failed to update password. Please try again.");
+      setError(message);
     } finally {
       setIsLoading(false);
     }

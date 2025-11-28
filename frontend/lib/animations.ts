@@ -384,7 +384,7 @@ export const createScrollAnimation = (y = 50, duration = 0.8) => ({
   }
 });
 
-export default {
+const animations = {
   fadeVariants,
   slideVariants,
   scaleVariants,
@@ -405,3 +405,5 @@ export default {
   createHoverTransition,
   createScrollAnimation
 };
+
+export default animations;

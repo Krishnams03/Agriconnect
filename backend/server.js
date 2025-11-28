@@ -5,13 +5,12 @@ const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
 const { spawn } = require("child_process");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
 const axios = require("axios");
 const FormData = require("form-data");
 
 const config = require("./config");
 const logger = require("./utils/logger");
+const authRoutes = require("./routes/auth");
 
 const app = express();
 const upload = multer({ storage: multer.memoryStorage() });
@@ -36,14 +35,6 @@ mongoose
     logger.error("MongoDB connection error", { error });
     process.exit(1);
   });
-
-// --- User Schema ---
-const userSchema = new mongoose.Schema({
-  name: String,
-  email: { type: String, unique: true },
-  password: String,
-});
-const User = mongoose.model("User", userSchema);
 
 // --- Discussion Schema ---
 const discussionSchema = new mongoose.Schema({
@@ -129,60 +120,8 @@ app.get("/api/plant-search", async (req, res) => {
 });
 
 // 4. User Sign-Up
-app.post("/api/auth/sign-up", async (req, res) => {
-  const { name, email, password } = req.body;
-
-  if (!name || !email || !password) {
-    return res.status(400).json({ message: "All fields are required." });
-  }
-
-  try {
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ message: "Email is already taken." });
-    }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = new User({ name, email, password: hashedPassword });
-    await user.save();
-
-    res.status(201).json({ message: "Sign-up successful! Please log in." });
-  } catch (error) {
-    logger.error("Error during sign-up", { error });
-    res.status(500).json({ message: "Server error. Please try again later." });
-  }
-});
-
-// 5. User Login
-app.post("/api/auth/login", async (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json({ message: "Email and password are required." });
-  }
-
-  try {
-    const user = await User.findOne({ email });
-    if (!user) {
-      return res.status(400).json({ message: "Invalid credentials." });
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-    if (!isMatch) {
-      return res.status(400).json({ message: "Invalid credentials." });
-    }
-
-    const token = jwt.sign(
-      { userId: user._id, email: user.email },
-      config.jwtSecret,
-      { expiresIn: config.tokenExpirySeconds }
-    );
-    res.status(200).json({ message: "Login successful", token });
-  } catch (error) {
-    logger.error("Error during login", { error });
-    res.status(500).json({ message: "Server error. Please try again later." });
-  }
-});
+// Auth routes
+app.use("/api/auth", authRoutes);
 
 // 6. Get All Discussions
 app.get("/api/discussions", async (req, res) => {

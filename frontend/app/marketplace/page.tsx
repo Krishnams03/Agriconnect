@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Leaf, ShoppingCart, Star } from "lucide-react";
+import { Leaf, ShoppingCart, Star, Sparkles, Truck, ShieldCheck, Tag, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Image from "next/image";
@@ -13,6 +13,7 @@ import { isAuthenticated, getUserInfo } from "@/app/utils/auth";
 import Loader from "@/components/Loader";
 import { toast } from "@/components/ui/toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { motion } from "framer-motion";
 export interface Product {
   id: number;
   name: string;
@@ -254,6 +255,23 @@ const products: Product[] = [
     }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function Marketplace() {
   const router = useRouter();
   const [name, setUserName] = useState<string | null>(null);
@@ -263,6 +281,8 @@ export default function Marketplace() {
   const [filterType, setFilterType] = useState("all");
   const [loading, setLoading] = useState(true); // Handle loading state
   const [isClient, setIsClient] = useState(false); // Client-side rendering check
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const catalogRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     // Ensure we are only on the client side when running this code
@@ -344,6 +364,80 @@ export default function Marketplace() {
 
   const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
+  const inventoryCounts = {
+    all: products.length,
+    crop: products.filter((p) => p.type === "crop").length,
+    fertilizer: products.filter((p) => p.type === "fertilizer").length,
+  } as const;
+
+  const categoryFilters = [
+    {
+      key: "all",
+      label: "All inventory",
+      description: "Fresh produce + soil health",
+    },
+    {
+      key: "crop",
+      label: "Field-fresh crops",
+      description: "Tomatoes, greens, fruits",
+    },
+    {
+      key: "fertilizer",
+      label: "Fertilizers",
+      description: "NPK, compost, bio stimulants",
+    },
+  ].map((filter) => ({
+    ...filter,
+    count: inventoryCounts[filter.key as keyof typeof inventoryCounts],
+    active: filterType === filter.key,
+  }));
+
+  const marketplaceStats = [
+    { label: "Active buyers", value: "12k+", subtext: "Across 14 regions" },
+    { label: "Avg. fulfillment", value: "36h", subtext: "from order to dispatch" },
+    { label: "Quality score", value: "4.8/5", subtext: "community rated" },
+  ];
+
+  const assuranceHighlights = [
+    {
+      icon: Truck,
+      title: "Cold-chain ready",
+      description: "Coordinated logistics windows keep leafy produce crisp.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Verified suppliers",
+      description: "Every seller undergoes agronomy-grade quality screens.",
+    },
+    {
+      icon: Tag,
+      title: "Transparent pricing",
+      description: "Live benchmark pricing keeps negotiations fair for both sides.",
+    },
+  ];
+
+  const featuredVendors = [
+    {
+      name: "Greenfields Collective",
+      specialty: "Organic vegetables",
+      metric: "6.2k orders",
+    },
+    {
+      name: "SoilGuard Inputs",
+      specialty: "Premium fertilizers",
+      metric: "4.1k shipments",
+    },
+    {
+      name: "HarvestCircle Co-op",
+      specialty: "Mixed crop lots",
+      metric: "3.5k buyers",
+    },
+  ];
+
+  const scrollToCatalog = () => {
+    catalogRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   if (loading) {
     return <Loader />;
   }
@@ -370,105 +464,329 @@ export default function Marketplace() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-            {/* Navbar */}
-            <header className="sticky top-0 bg-white-800 text-white shadow-md z-10">
-                <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-                    <Link href="/" className="text-2xl text-black font-bold flex items-center">
-                        <Leaf className="mr-2" />
-                        AgriConnect
-                    </Link>
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-emerald-50/40 to-white text-slate-900">
+      <header className="sticky top-0 z-30 border-b border-slate-200 bg-white/80 backdrop-blur">
+        <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
+          <Link href="/" className="flex items-center gap-2 text-xl font-semibold tracking-tight text-slate-900">
+            <Leaf className="h-6 w-6 text-green-600" />
+            AgriConnect Market
+          </Link>
+          <button
+            className="md:hidden rounded-full border border-slate-200 p-2 text-slate-600"
+            onClick={() => setMobileMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation"
+          >
+            {mobileMenuOpen ? <ArrowRight className="h-5 w-5 rotate-180" /> : <ShoppingCart className="h-5 w-5" />}
+          </button>
+          <div className="hidden items-center gap-6 md:flex">
+            <Link href="/orders" className="text-sm text-slate-600 hover:text-slate-900">
+              Orders
+            </Link>
+            <Button
+              variant="outline"
+              className="relative rounded-full border-slate-200 bg-white px-6 text-slate-700 hover:bg-slate-50"
+              onClick={() => router.push("/cart")}
+            >
+              <ShoppingCart className="mr-2 h-4 w-4" /> My Cart
+              {totalCartItems > 0 && (
+                <span className="ml-2 rounded-full bg-green-600 px-2 py-0.5 text-xs font-semibold text-white">
+                  {totalCartItems}
+                </span>
+              )}
+            </Button>
+            <Button className="rounded-full bg-green-600 px-6 text-white" onClick={scrollToCatalog}>
+              Browse catalog
+            </Button>
+          </div>
+        </nav>
+        {mobileMenuOpen && (
+          <div className="border-t border-slate-200 bg-white px-6 py-4 text-slate-600 md:hidden">
+            <div className="space-y-3">
+              <Link href="/orders" className="block" onClick={() => setMobileMenuOpen(false)}>
+                Orders
+              </Link>
+              <button
+                className="flex w-full items-center justify-between rounded-full border border-slate-200 px-4 py-2"
+                onClick={() => {
+                  router.push("/cart");
+                  setMobileMenuOpen(false);
+                }}
+              >
+                <span>My Cart</span>
+                {totalCartItems > 0 && (
+                  <span className="rounded-full bg-green-600 px-2 py-0.5 text-xs font-semibold text-white">
+                    {totalCartItems}
+                  </span>
+                )}
+              </button>
+              <Button className="w-full rounded-full bg-green-600 text-white" onClick={() => {
+                scrollToCatalog();
+                setMobileMenuOpen(false);
+              }}>
+                Browse catalog
+              </Button>
+            </div>
+          </div>
+        )}
+      </header>
 
-                    <div className="flex items-center space-x-6">
-                        
-                        <Link href="/orders" className="text-black hover:text-green-300">Orders</Link>
-                        <Link href="/cart" className="text-black relative hover:text-green-300">
-                            <ShoppingCart className="mr-2 h-5 w-5" />
-                            {totalCartItems > 0 && (
-                                <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full px-2 py-1 text-xs">
-                                    {totalCartItems}
-                                </span>
-                            )}
-                        </Link>
-                    </div>
-                </nav>
-            </header>
+      <main className="flex-1">
+        <motion.section
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="relative isolate overflow-hidden bg-gradient-to-br from-white via-emerald-50 to-white"
+        >
+          <div className="absolute inset-y-0 right-0 hidden w-[480px] bg-[radial-gradient(circle_at_top,rgba(34,197,94,0.15),transparent_60%)] lg:block" />
+          <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-green-100/70 blur-3xl" />
+          <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 py-20 lg:grid-cols-[1.05fr,0.95fr]">
+            <div className="space-y-8">
+              <motion.p variants={itemVariants} className="text-xs font-semibold uppercase tracking-[0.35em] text-green-600">
+                Marketplace · Trusted growers
+              </motion.p>
+              <motion.h1 variants={itemVariants} className="text-4xl font-semibold leading-tight text-slate-900 md:text-5xl">
+                {name ? `${name},` : "Hey grower,"} restock your farm with confidence.
+              </motion.h1>
+              <motion.p variants={itemVariants} className="max-w-2xl text-lg text-slate-600">
+                Match the homepage aesthetic with curated produce, soil inputs, and logistics support in one canvas. Apply filters,
+                lock transparent pricing, and sync deliveries to your crop calendar.
+              </motion.p>
+              <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
+                <Button className="rounded-full bg-green-600 px-6 text-white" onClick={scrollToCatalog}>
+                  Explore inventory
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+                <Button
+                  variant="outline"
+                  className="rounded-full border-green-200 bg-white px-6 text-green-700 hover:bg-green-50"
+                  onClick={() => router.push("/orders")}
+                >
+                  View your orders
+                </Button>
+              </motion.div>
+              <motion.div variants={itemVariants} className="grid gap-4 sm:grid-cols-3">
+                {marketplaceStats.map((stat) => (
+                  <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm">
+                    <p className="text-3xl font-semibold text-slate-900">{stat.value}</p>
+                    <p className="mt-2 text-sm text-slate-600">{stat.label}</p>
+                    <p className="text-xs text-slate-400">{stat.subtext}</p>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+            <motion.div
+              variants={itemVariants}
+              className="relative rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-[0_30px_80px_-35px_rgba(15,23,42,0.35)]"
+            >
+              <div className="flex items-center gap-3 text-sm text-slate-500">
+                <Sparkles className="h-4 w-4 text-green-600" />
+                Live lot tracking enabled
+              </div>
+              <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-xs uppercase tracking-[0.3em] text-slate-500">Fulfillment rate</p>
+                    <p className="text-4xl font-semibold text-slate-900">97%</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="text-sm text-slate-500">Cold chain lots</p>
+                    <p className="text-2xl font-semibold text-slate-900">52</p>
+                  </div>
+                </div>
+                <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-white">
+                  <div className="h-full w-[97%] rounded-full bg-gradient-to-r from-green-500 to-emerald-400" />
+                </div>
+              </div>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 text-sm text-slate-600">
+                  <Truck className="mb-2 h-5 w-5 text-green-600" />
+                  640+ delivery routes syncing with agri-co-ops weekly.
+                </div>
+                <div className="rounded-2xl border border-slate-100 bg-white p-4 text-sm text-slate-600">
+                  <ShieldCheck className="mb-2 h-5 w-5 text-green-600" />
+                  Escrow-backed payments for safer supplier contracts.
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.section>
 
+        <section className="px-6 py-12" ref={catalogRef}>
+          <div className="mx-auto max-w-7xl space-y-8">
+            <Card className="border border-slate-200 bg-white/90 p-6 shadow-sm">
+              <div className="flex flex-col gap-4 lg:flex-row lg:items-center">
+                <div className="flex-1">
+                  <p className="text-xs uppercase tracking-[0.3em] text-green-600">Smart filters</p>
+                  <h2 className="text-2xl font-semibold text-slate-900">Zero in on the lots you need</h2>
+                </div>
+                <div className="flex flex-1 flex-col gap-4 md:flex-row">
+                  <Input
+                    type="text"
+                    placeholder="Search produce, fertilizers, vendors"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="rounded-2xl border-slate-200"
+                  />
+                  <Select value={filterType} onValueChange={setFilterType}>
+                    <SelectTrigger className="rounded-2xl border-slate-200">
+                      <SelectValue placeholder="Filter by type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Products</SelectItem>
+                      <SelectItem value="crop">Crops</SelectItem>
+                      <SelectItem value="fertilizer">Fertilizers</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Button
+                  variant="outline"
+                  className="rounded-full border-slate-200 px-6 text-slate-700 hover:bg-slate-50"
+                  onClick={() => {
+                    setSearchTerm("");
+                    setFilterType("all");
+                  }}
+                >
+                  Reset filters
+                </Button>
+              </div>
+            </Card>
 
-            {/* Main Content */}
-            <main className="container mx-auto px-4 py-8">
-                {/* Search and Filter */}
-                <div className="flex flex-wrap justify-between items-center mb-6">
-                    <Input
-                        type="text"
-                        placeholder="Search products..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="flex-grow md:w-1/2 lg:w-1/3"
+            <div className="grid gap-4 md:grid-cols-3">
+              {categoryFilters.map((filter) => (
+                <button
+                  key={filter.key}
+                  onClick={() => setFilterType(filter.key)}
+                  className={`rounded-2xl border p-5 text-left transition-all ${
+                    filter.active ? "border-green-500 bg-white shadow-lg" : "border-slate-200 bg-white/70 hover:border-green-200"
+                  }`}
+                >
+                  <p className="text-sm font-semibold text-slate-900">{filter.label}</p>
+                  <p className="text-xs text-slate-500">{filter.description}</p>
+                  <p className="mt-4 text-2xl font-semibold text-slate-900">{filter.count}</p>
+                </button>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="px-6 pb-12">
+          <div className="mx-auto max-w-7xl space-y-8">
+            <div className="flex flex-col gap-2 text-center">
+              <p className="text-xs uppercase tracking-[0.35em] text-green-600">Catalog</p>
+              <h2 className="text-3xl font-semibold text-slate-900">Fresh produce & soil inputs</h2>
+              <p className="text-slate-600">Curated cards with the same card language as the homepage.</p>
+            </div>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
+              {filteredProducts.length === 0 && (
+                <Card className="col-span-full border border-slate-200 bg-white/90 p-8 text-center text-slate-600">
+                  No products match your filters yet. Try clearing them or exploring another category.
+                </Card>
+              )}
+              {filteredProducts.map((product) => (
+                <Card key={product.id} className="relative flex h-full flex-col overflow-hidden border border-slate-200 bg-white/90">
+                  <div className="relative">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={400}
+                      height={250}
+                      className="h-48 w-full object-cover"
                     />
-                    <Select value={filterType} onValueChange={setFilterType}>
-                        <SelectTrigger className="w-48 ml-4">
-                            <SelectValue placeholder="Filter by type" />
-                        </SelectTrigger>
-                        <SelectContent>
-                            <SelectItem value="all">All Products</SelectItem>
-                            <SelectItem value="crop">Crops</SelectItem>
-                            <SelectItem value="fertilizer">Fertilizers</SelectItem>
-                        </SelectContent>
-                    </Select>
-                </div>
+                    {product.discount > 0 && (
+                      <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-red-500">
+                        Save {Math.round(product.discount * 100)}%
+                      </span>
+                    )}
+                  </div>
+                  <CardContent className="flex flex-1 flex-col gap-3 p-5">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{product.type}</p>
+                      <h3 className="text-lg font-semibold text-slate-900">{product.name}</h3>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                      <p className="text-2xl font-semibold text-green-700">
+                        ₹{(product.price - product.price * product.discount).toFixed(2)}
+                      </p>
+                      {product.discount > 0 && (
+                        <span className="text-sm text-slate-400 line-through">₹{product.price.toFixed(2)}</span>
+                      )}
+                      <span className="text-xs text-slate-500">per {product.unit}</span>
+                    </div>
+                    <div className="flex items-center text-yellow-500">
+                      {[...Array(Math.round(product.rating))].map((_, i) => (
+                        <Star key={i} className="h-4 w-4" />
+                      ))}
+                      <span className="ml-2 text-xs text-slate-500">{product.rating.toFixed(1)} · {product.reviews} reviews</span>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="p-5 pt-0">
+                    <Button
+                      onClick={() => addToCart(product.id)}
+                      className="w-full rounded-full bg-green-600 text-white hover:bg-green-700"
+                    >
+                      Add to cart
+                    </Button>
+                  </CardFooter>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
-                {/* Product Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {filteredProducts.map((product) => (
-                        <Card key={product.id} className="hover:shadow-lg transition-shadow duration-300 relative">
-                            <Image
-                                src={product.image}
-                                alt={product.name}
-                                width={400}
-                                height={250}
-                                className="rounded-lg object-cover w-full h-64"
-                            />
-                            {product.discount > 0 && (
-                                <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
-                                    Save {Math.round(product.discount * 100)}%
-                                </div>
-                            )}
-                            <CardContent className="p-4">
-                                <h2 className="text-lg font-semibold text-green-800">{product.name}</h2>
-                                <p className="text-sm text-gray-500 capitalize">{product.type}</p>
-                                <p className="text-green-700 font-bold text-lg mt-2">
-                                    ₹{(product.price - product.price * product.discount).toFixed(2)}
-                                    {product.discount > 0 && (
-                                        <span className="line-through text-gray-400 ml-2">
-                                            ₹{product.price.toFixed(2)}
-                                        </span>
-                                    )}
-                                </p>
-                                <div className="flex items-center mt-2 text-yellow-500">
-                                    {[...Array(Math.round(product.rating))].map((_, i) => (
-                                        <Star key={i} className="h-4 w-4" />
-                                    ))}
-                                    <span className="ml-2 text-sm text-gray-500">
-                                        ({product.reviews} reviews)
-                                    </span>
-                                </div>
-                            </CardContent>
-                            <CardFooter className="p-4">
-                                <Button
-                                    onClick={() => addToCart(product.id)}
-                                    className="w-full bg-green-600 hover:bg-green-700 text-white"
-                                >
-                                    Add to Cart
-                                </Button>
-                            </CardFooter>
-                        </Card>
-                    ))}
-                </div>
-            </main>
+        <section className="px-6 pb-12">
+          <div className="mx-auto max-w-7xl space-y-8">
+            <div className="grid gap-6 md:grid-cols-3">
+              {assuranceHighlights.map((highlight) => {
+                const Icon = highlight.icon;
+                return (
+                  <Card key={highlight.title} className="border border-slate-200 bg-white/90 p-6">
+                    <Icon className="mb-4 h-6 w-6 text-green-600" />
+                    <h3 className="text-xl font-semibold text-slate-900">{highlight.title}</h3>
+                    <p className="mt-2 text-sm text-slate-600">{highlight.description}</p>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-            {/* Footer */}
-            <Footer />
-        </div>
+        <section className="px-6 pb-20">
+          <div className="mx-auto max-w-7xl space-y-8">
+            <div className="flex flex-col gap-2 text-center">
+              <p className="text-xs uppercase tracking-[0.35em] text-green-600">Featured vendors</p>
+              <h2 className="text-3xl font-semibold text-slate-900">Trusted sellers from across the network</h2>
+            </div>
+            <div className="grid gap-6 md:grid-cols-3">
+              {featuredVendors.map((vendor) => (
+                <Card key={vendor.name} className="border border-slate-200 bg-white/90 p-6 text-center">
+                  <p className="text-xs uppercase tracking-[0.3em] text-slate-500">{vendor.specialty}</p>
+                  <h3 className="mt-2 text-xl font-semibold text-slate-900">{vendor.name}</h3>
+                  <p className="mt-4 text-sm text-slate-600">{vendor.metric} fulfilled</p>
+                </Card>
+              ))}
+            </div>
+            <div className="rounded-3xl border border-slate-200 bg-white/90 p-10 text-center">
+              <p className="text-xs uppercase tracking-[0.35em] text-green-600">Next steps</p>
+              <h3 className="mt-3 text-3xl font-semibold text-slate-900">Ready to finalize your cart?</h3>
+              <p className="mt-3 text-slate-600">Proceed to checkout or sync with the orders dashboard for scheduling.</p>
+              <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:justify-center">
+                <Button className="rounded-full bg-green-600 px-6 text-white" onClick={() => router.push("/cart")}>
+                  Go to cart
+                </Button>
+                <Button
+                  variant="outline"
+                  className="rounded-full border-green-200 bg-white px-6 text-green-700 hover:bg-green-50"
+                  onClick={() => router.push("/orders")}
+                >
+                  Review orders
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

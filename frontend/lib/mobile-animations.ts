@@ -275,7 +275,7 @@ export const animationUtils = {
   })
 };
 
-export default {
+const mobileAnimations = {
   useDeviceType,
   useReducedMotion,
   useAdaptiveAnimation,
@@ -286,3 +286,5 @@ export default {
   useOptimizedScrollAnimation,
   animationUtils
 };
+
+export default mobileAnimations;

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Leaf, ShoppingCart } from "lucide-react";
+import { Leaf } from "lucide-react";
 
 interface Order {
   _id: string;  // Updated to match MongoDB ObjectId

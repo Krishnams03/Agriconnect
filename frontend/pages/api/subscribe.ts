@@ -32,11 +32,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
 
     return res.status(200).json({ message: "Successfully subscribed!", data: response });
-  } catch (error: any) {
-    console.error("Mailchimp API Error:", error.response?.text || error.message);
+  } catch (error: unknown) {
+    const errorMessage =
+      error && typeof error === "object" && "response" in error && error.response && typeof error.response === "object" && "text" in error.response
+        ? (error.response as { text?: string }).text
+        : error instanceof Error
+          ? error.message
+          : "Unknown error";
+
+    console.error("Mailchimp API Error:", errorMessage);
     return res.status(500).json({ 
       error: "Failed to subscribe", 
-      details: error.response?.text || error.message 
+      details: errorMessage 
     });
   }
 }

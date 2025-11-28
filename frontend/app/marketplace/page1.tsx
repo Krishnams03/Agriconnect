@@ -319,7 +319,6 @@ export default function Marketplace() {
     });
   };
 
-  const totalCartItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   if (loading) {
     return <Loader />;
   }

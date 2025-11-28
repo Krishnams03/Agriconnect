@@ -7,15 +7,16 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Leaf } from "lucide-react";
-import { isAuthenticated, saveUserSession } from "@/app/utils/auth";
+import { isAuthenticated, saveUserSession, type SessionMetadata, type SessionUser } from "@/app/utils/auth";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
 
 interface SignUpResponse {
   message?: string;
   token?: string;
-  user?: {
-    name?: string;
-    email?: string;
-  };
+  expiresIn?: number;
+  user?: SessionUser;
+  session?: SessionMetadata | null;
 }
 
 const highlights = [
@@ -56,25 +57,34 @@ export default function SignUp() {
     setIsLoading(true);
 
     try {
-      const response = await axios.post<SignUpResponse>("http://localhost:8000/api/auth/sign-up", {
-        name: fullName,
-        email,
+      const trimmedName = fullName.trim();
+      const normalizedEmail = email.trim().toLowerCase();
+      const payload = {
+        name: trimmedName,
+        email: normalizedEmail,
         password,
-      });
+      };
 
-      if (response.data.token) {
-  saveUserSession(fullName || email, response.data.token, 3600, email);
+      const response = await axios.post<SignUpResponse>(`${API_BASE_URL}/api/auth/sign-up`, payload);
+
+      const { token, user, expiresIn, session } = response.data;
+
+      if (token) {
+        const displayName = user?.name ?? payload.name ?? payload.email;
+        const sessionEmail = user?.email ?? payload.email;
+        const ttl = expiresIn ?? 3600;
+        saveUserSession(displayName, token, ttl, sessionEmail, session ?? user?.session ?? null);
         router.push("/");
         return;
       }
 
       setSuccessMessage(response.data.message ?? "Account created successfully. Please sign in.");
       setTimeout(() => router.push("/log-in"), 1800);
-    } catch (err: any) {
-      const message =
-        err?.response?.data?.message ||
-        err?.response?.data?.error ||
-        "Something went wrong during sign up. Please try again.";
+    } catch (err: unknown) {
+      const message = axios.isAxiosError(err)
+        ? err.response?.data?.message || err.response?.data?.error ||
+          "Something went wrong during sign up. Please try again."
+        : "Something went wrong during sign up. Please try again.";
       setError(message);
     } finally {
       setIsLoading(false);

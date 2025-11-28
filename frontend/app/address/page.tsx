@@ -91,10 +91,11 @@ export default function Address() {
                 description: "Your address has been saved successfully.",
                 variant: "success",
             });
-        } catch (error: any) {
+        } catch (error: unknown) {
+            const message = error instanceof Error ? error.message : "Failed to save address.";
             toast({
                 title: "Error",
-                description: error.message || "Failed to save address.",
+                description: message,
                 variant: "destructive",
             });
         } finally {

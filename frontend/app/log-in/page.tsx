@@ -7,11 +7,16 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Leaf } from "lucide-react";
-import { isAuthenticated, saveUserSession } from "@/app/utils/auth";
+import { isAuthenticated, saveUserSession, type SessionUser, type SessionMetadata } from "@/app/utils/auth";
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8000";
 
 interface LoginResponse {
   message: string;
   token?: string;
+  expiresIn?: number;
+  user?: SessionUser;
+  session?: SessionMetadata | null;
 }
 
 const metrics = [
@@ -40,22 +45,29 @@ export default function Login() {
     setError(null);
 
     try {
-      const response = await axios.post<LoginResponse>("http://localhost:8000/api/auth/login", {
-        email,
+      const normalizedEmail = email.trim().toLowerCase();
+      const response = await axios.post<LoginResponse>(`${API_BASE_URL}/api/auth/login`, {
+        email: normalizedEmail,
         password,
       });
 
-      if (!response.data.token) {
+      const { token, user, expiresIn, session } = response.data;
+
+      if (!token) {
         setError("Login failed. Please check your credentials.");
         return;
       }
 
-  saveUserSession(email, response.data.token, 3600, email);
+      const displayName = user?.name ?? normalizedEmail;
+      const sessionEmail = user?.email ?? normalizedEmail;
+      const ttl = expiresIn ?? 3600;
+
+      saveUserSession(displayName, token, ttl, sessionEmail, session ?? user?.session ?? null);
       router.push("/");
-    } catch (err: any) {
-      const message =
-        err?.response?.data?.message ??
-        "Something went wrong during login. Please try again.";
+    } catch (err: unknown) {
+      const message = axios.isAxiosError(err)
+        ? err.response?.data?.message ?? "Something went wrong during login. Please try again."
+        : "Something went wrong during login. Please try again.";
       setError(message);
     } finally {
       setIsLoading(false);
