@@ -34,6 +34,29 @@ const highlights = [
   },
 ];
 
+const DEFAULT_SIGNUP_ERROR = "Something went wrong during sign up. Please try again.";
+
+type SignupApiError = {
+  response?: {
+    data?: {
+      message?: string;
+      error?: string;
+    };
+  };
+};
+
+const getSignUpErrorMessage = (error: unknown): string => {
+  if (typeof error === "object" && error !== null) {
+    const apiError = error as SignupApiError;
+    const apiMessage = apiError.response?.data?.message ?? apiError.response?.data?.error;
+    if (apiMessage) {
+      return apiMessage;
+    }
+  }
+
+  return DEFAULT_SIGNUP_ERROR;
+};
+
 export default function SignUp() {
   const router = useRouter();
   const [fullName, setFullName] = useState("");
@@ -81,11 +104,7 @@ export default function SignUp() {
       setSuccessMessage(response.data.message ?? "Account created successfully. Please sign in.");
       setTimeout(() => router.push("/log-in"), 1800);
     } catch (err: unknown) {
-      const message = axios.isAxiosError(err)
-        ? err.response?.data?.message || err.response?.data?.error ||
-          "Something went wrong during sign up. Please try again."
-        : "Something went wrong during sign up. Please try again.";
-      setError(message);
+      setError(getSignUpErrorMessage(err));
     } finally {
       setIsLoading(false);
     }

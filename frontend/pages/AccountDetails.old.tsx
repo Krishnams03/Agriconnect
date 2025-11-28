@@ -20,15 +20,17 @@ export default function AccountDetails() {
   useEffect(() => {
     const session = getUserSession();
     if (session) {
+      const sessionUsername = session.username ?? "";
+      const sessionEmail = session.email ?? "";
       setUser({
-        username: session.username,
-        email: session.email,
+        username: sessionUsername,
+        email: sessionEmail,
         password: "",
         confirmPassword: "",
       });
       setFormData({
-        username: session.username,
-        email: session.email,
+        username: sessionUsername,
+        email: sessionEmail,
         password: "",
         confirmPassword: "",
       });

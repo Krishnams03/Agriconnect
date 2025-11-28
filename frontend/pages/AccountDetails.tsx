@@ -2,7 +2,7 @@
 
 import type { FormEvent } from "react";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
@@ -47,6 +47,15 @@ interface ProfileResponse {
   user: UserProfile;
   session?: SessionMetadata | null;
 }
+
+type ProfileApiError = {
+  response?: {
+    status?: number;
+    data?: {
+      message?: string;
+    };
+  };
+};
 
 type NotificationsState = {
   email: boolean;
@@ -223,13 +232,13 @@ export default function AccountDetails() {
 
   const handleRequestError = useCallback(
     (error: unknown, fallback: string) => {
-      const axiosError = error as AxiosError<{ message?: string }>;
-      if (axiosError?.response?.status === 401) {
+      const apiError = error as ProfileApiError;
+      if (apiError?.response?.status === 401) {
         setStatus({ kind: "error", message: "Session expired. Please sign in again." });
         handleSignOut();
         return;
       }
-      const message = axiosError?.response?.data?.message ?? fallback;
+      const message = apiError?.response?.data?.message ?? fallback;
       setStatus({ kind: "error", message });
     },
     [handleSignOut]

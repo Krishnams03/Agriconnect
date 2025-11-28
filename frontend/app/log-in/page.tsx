@@ -25,6 +25,28 @@ const metrics = [
   { label: "Daily insights shared", value: "5k+" },
 ];
 
+const DEFAULT_LOGIN_ERROR = "Something went wrong during login. Please try again.";
+
+type ApiErrorShape = {
+  response?: {
+    data?: {
+      message?: string;
+    };
+  };
+};
+
+const getLoginErrorMessage = (error: unknown): string => {
+  if (typeof error === "object" && error !== null) {
+    const apiError = error as ApiErrorShape;
+    const apiMessage = apiError.response?.data?.message;
+    if (apiMessage) {
+      return apiMessage;
+    }
+  }
+
+  return DEFAULT_LOGIN_ERROR;
+};
+
 export default function Login() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -65,10 +87,7 @@ export default function Login() {
       saveUserSession(displayName, token, ttl, sessionEmail, session ?? user?.session ?? null);
       router.push("/");
     } catch (err: unknown) {
-      const message = axios.isAxiosError(err)
-        ? err.response?.data?.message ?? "Something went wrong during login. Please try again."
-        : "Something went wrong during login. Please try again.";
-      setError(message);
+      setError(getLoginErrorMessage(err));
     } finally {
       setIsLoading(false);
     }
