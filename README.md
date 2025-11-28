@@ -1,4 +1,4 @@
-# AgriConnect Monorepo
+# AgriConnect Monorepo (TerraSyntro)
 
 AgriConnect is an end-to-end platform that connects farmers, agri-input sellers, and experts through a modern marketplace, logistics tooling, and AI-assisted agronomy services. This repository contains both the **Next.js frontend** and the **Node.js/Express backend** (plus a lightweight Python ML microservice) that power the experience.
 
