@@ -19,7 +19,7 @@ const features: Feature[] = [
     title: "Plant Disease Detection",
     description:
       "Advanced AI-powered plant disease identification system. Upload a photo of your plant and get instant, accurate diagnosis with treatment recommendations.",
-    link: "/disease-detection",
+    link: "/plant-disease-detection",
     buttonText: "Start Detection",
     accent: "green",
   },

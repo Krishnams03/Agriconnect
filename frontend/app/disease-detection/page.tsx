@@ -30,7 +30,7 @@ import { useRouter } from "next/navigation";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { isAuthenticated, getUserInfo } from "@/app/utils/auth";
 import { logUserActivity } from "@/lib/activity";
-import Loader from "@/components/Loader";
+import AnimatedLeafLogo from "@/components/AnimatedLeafLogo";
 
 const CONFIDENCE_WIDTH_CLASSES: Record<number, string> = {
   0: "w-[0%]",
@@ -302,7 +302,13 @@ export default function DiseaseDetectionPage() {
     );
   }
   if (loading) {
-    return <Loader />;
+    return (
+      <div className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-white via-emerald-50 to-white text-slate-600">
+        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-green-500">Preparing lab</p>
+        <p className="mt-3 text-2xl font-semibold text-slate-900">Loading disease intelligence...</p>
+        <p className="mt-2 text-sm text-slate-500">Just a moment while we ready your plant diagnostics.</p>
+      </div>
+    );
   }
 
   const heroConfidenceValue = analysis ? analysis.confidence : 95;
@@ -311,11 +317,28 @@ export default function DiseaseDetectionPage() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-white via-emerald-50/40 to-white text-slate-900">
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur">
-        <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-6 py-4">
-          <Link href="/" className="flex items-center gap-2 text-xl font-semibold tracking-tight text-slate-900">
-            <Leaf className="h-6 w-6 text-green-600" />
-            AgriConnect Labs
+        <nav className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 px-4 py-4">
+          <Link href="/" className="flex items-center gap-3" aria-label="AgriConnect home">
+            <AnimatedLeafLogo size="sm" />
+            <span className="text-xl font-semibold tracking-tight text-slate-900">AgriConnect Labs</span>
           </Link>
+          <div className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+            <Link href="/growth-factors" className="hover:text-slate-900">
+              Growth Factors
+            </Link>
+            <Link href="/marketplace" className="hover:text-slate-900">
+              Marketplace
+            </Link>
+            <Link href="/community-forum" className="hover:text-slate-900">
+              Community
+            </Link>
+            <Button
+              className="rounded-full bg-green-600 px-6 text-white hover:bg-green-700"
+              onClick={scrollToWorkspace}
+            >
+              Launch Scanner
+            </Button>
+          </div>
           <button
             className="md:hidden rounded-full border border-slate-200 p-2 text-slate-600"
             onClick={() => setMobileMenuOpen((prev) => !prev)}
@@ -323,20 +346,6 @@ export default function DiseaseDetectionPage() {
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
-          <div className="hidden items-center gap-6 md:flex">
-            <Link href="/growth-factors" className="text-sm text-slate-600 hover:text-slate-900">
-              Growth Factors
-            </Link>
-            <Link href="/marketplace" className="text-sm text-slate-600 hover:text-slate-900">
-              Marketplace
-            </Link>
-            <Link href="/community-forum" className="text-sm text-slate-600 hover:text-slate-900">
-              Community
-            </Link>
-            <Button className="rounded-full bg-green-600 px-6 text-white hover:bg-green-700" onClick={scrollToWorkspace}>
-              Launch Scanner
-            </Button>
-          </div>
         </nav>
         {mobileMenuOpen && (
           <div className="border-t border-slate-200 bg-white px-6 py-4 text-slate-600 md:hidden">

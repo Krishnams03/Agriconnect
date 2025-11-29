@@ -4,6 +4,8 @@ import type { AppProps } from "next/app";
 import axios from "axios";
 import Loader from "@/components/Loader"; // Import the new Loader component
 import "@/app/globals.css"; // Adjust path to your styles
+import { isAuthenticated } from "@/app/utils/auth";
+import { buildRedirectParam, shouldProtectRoute } from "@/app/utils/route-guard";
 
 // Define a type for user data
 interface User {
@@ -25,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [isPageLoading, setIsPageLoading] = useState(false); // For page transition loading
+  const [checkingAuth, setCheckingAuth] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -46,6 +49,27 @@ export default function App({ Component, pageProps }: AppProps) {
   }, []);
 
   useEffect(() => {
+    if (!router.isReady) return;
+
+    setCheckingAuth(true);
+    const currentPath = router.asPath || "/";
+
+    if (!shouldProtectRoute(currentPath)) {
+      setCheckingAuth(false);
+      return;
+    }
+
+    if (!isAuthenticated()) {
+      const [pathOnly, search = ""] = currentPath.split("?");
+      const redirectTarget = buildRedirectParam(pathOnly || "/", search.length ? search : null);
+      router.replace(`/log-in?redirect=${encodeURIComponent(redirectTarget)}`);
+      return;
+    }
+
+    setCheckingAuth(false);
+  }, [router.asPath, router.isReady]);
+
+  useEffect(() => {
     // Handle page transitions
     const handleStart = () => setIsPageLoading(true);
     const handleComplete = () => setIsPageLoading(false);
@@ -62,7 +86,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router]);
 
   // Show loading state while fetching user data
-  if (loading) {
+  if (loading || checkingAuth) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <p>Loading...</p>

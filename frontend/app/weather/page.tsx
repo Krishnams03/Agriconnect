@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
-  Leaf,
   CloudSun,
   CloudRain,
   Droplets,
@@ -23,6 +22,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import Footer from "@/components/Footer";
+import AnimatedLeafLogo from "@/components/AnimatedLeafLogo";
 
 type ForecastIcon = "sunny" | "partly" | "rain" | "cloud";
 
@@ -237,23 +237,30 @@ export default function WeatherIntelligencePage() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 via-white to-white">
       <header className="sticky top-0 z-40 border-b border-emerald-100 bg-white/80 backdrop-blur">
-        <nav className="container mx-auto flex items-center justify-between px-4 py-4">
-          <Link href="/" className="flex items-center text-xl font-semibold text-emerald-900">
-            <Leaf className="mr-2 h-5 w-5 text-emerald-600" />
-            AgriConnect
+        <nav className="mx-auto flex w-full max-w-6xl items-center justify-between gap-4 px-4 py-4">
+          <Link href="/" className="flex items-center gap-3" aria-label="AgriConnect home">
+            <AnimatedLeafLogo size="sm" />
+            <span className="text-xl font-semibold tracking-tight text-slate-900">AgriConnect</span>
           </Link>
-          <div className="hidden items-center gap-6 text-sm text-slate-600 md:flex">
+          <div className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
             <Link href="/growth-factors" className="hover:text-emerald-700">
               Growth Factors
             </Link>
-            <Link href="/disease-detection" className="hover:text-emerald-700">
-              Disease Detection
+            <Link href="/plant-disease-detection" className="hover:text-emerald-700">
+              Plant Disease Detection
             </Link>
             <Link href="/marketplace" className="hover:text-emerald-700">
               Marketplace
             </Link>
+            <Button variant="outline" asChild className="border-emerald-200 text-emerald-800 hover:bg-emerald-50">
+              <Link href="/">Dashboard</Link>
+            </Button>
           </div>
-          <Button variant="outline" asChild className="border-emerald-200 text-emerald-800 hover:bg-emerald-50">
+          <Button
+            variant="outline"
+            asChild
+            className="border-emerald-200 text-emerald-800 hover:bg-emerald-50 md:hidden"
+          >
             <Link href="/" className="text-sm">
               Dashboard
             </Link>

@@ -1,15 +1,15 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Leaf, Menu, X } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import Loader from "@/components/Loader";
+import AnimatedLeafLogo from "@/components/AnimatedLeafLogo";
+import Footer from "@/components/Footer";
+import PageTransition from "@/components/PageTransition";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { logUserActivity } from "@/lib/activity";
+import { ArrowUpRight, Sparkles } from "lucide-react";
 
 interface Scheme {
   name: string;
@@ -28,261 +28,265 @@ interface SchemesResponse {
   };
 }
 
-const containerVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      staggerChildren: 0.1,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
-
 export default function GovernmentSchemesPage() {
   const [schemesData, setSchemesData] = useState<SchemesResponse | null>(null);
-  const [selectedState, setSelectedState] = useState<string | undefined>();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [loading, setLoading] = useState(true);  // Keep loading true until everything is ready
+  const [activeTab, setActiveTab] = useState<"national" | "state">("national");
+  const [selectedState, setSelectedState] = useState<string>("");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000); // Adjust duration as needed
-    return () => clearTimeout(timer);
+    fetch("/data/schemes.json")
+      .then((response) => response.json() as Promise<SchemesResponse>)
+      .then((data) => {
+        setSchemesData(data);
+        setLoading(false);
+      })
+      .catch((error: unknown) => {
+        console.error("Error fetching schemes data:", error);
+        setLoading(false);
+      });
   }, []);
 
-  const handleSchemeApply = async (
-    schemeName: string,
-    link: string,
-    scope: "national" | "state",
-    additionalMeta?: Record<string, unknown>
-  ) => {
+  const nationalSchemes = schemesData?.schemes.national ?? [];
+  const stateSchemes = schemesData?.schemes.state ?? {};
+  const stateNames = useMemo(() => Object.keys(stateSchemes).sort(), [stateSchemes]);
+
+  useEffect(() => {
+    if (!selectedState && stateNames.length) {
+      setSelectedState(stateNames[0]);
+    }
+  }, [selectedState, stateNames]);
+
+  const selectedStateSchemes = selectedState ? stateSchemes[selectedState] ?? [] : [];
+
+  const metrics = [
+    { label: "Pan-India programmes", value: nationalSchemes.length.toString() || "--", detail: "curated this season" },
+    { label: "State incentives", value: stateNames.length.toString() || "--", detail: "actively tracked" },
+    { label: "Avg. processing", value: "14 days", detail: "with assisted filing" }
+  ];
+
+  const handleSchemeApply = async (scheme: Scheme, scope: "national" | "state") => {
+    if (!scheme.name) return;
     await logUserActivity({
       type: "scheme",
-      title: `Opened ${schemeName}`,
+      title: `Opened ${scheme.name}`,
       details: `Viewing ${scope} scheme details`,
       meta: {
-        link,
         scope,
-        ...(scope === "state" && selectedState ? { state: selectedState } : {}),
-        ...additionalMeta,
-      },
+        link: scheme.apply_link,
+        state: scope === "state" ? selectedState : undefined
+      }
     });
   };
 
-  useEffect(() => {
-    // Fetch schemes data from JSON
-    fetch("/data/schemes.json")
-        .then((response) => response.json() as Promise<SchemesResponse>)
-        .then((data) => setSchemesData(data))
-        .catch((error: unknown) => console.error("Error fetching schemes data:", error));
-  }, []);
-
-  if (!schemesData) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="spinner-border animate-spin border-4 border-t-4 border-green-600 rounded-full w-16 h-16"></div>
-        <p className="ml-4 text-green-600">Loading schemes...</p>
-      </div>
-    );
-  }
-
-  const { national = [], state: stateSchemes = {} } = schemesData.schemes;
-  if (loading) {
-    return <Loader />;
-  }
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-green-50 to-green-100">
-      {/* Navbar */}
-      <header className="sticky top-0 bg-white-800 text-white shadow-md z-10">
-        <nav className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="text-2xl text-black font-bold flex items-center">
-            <Leaf className="mr-2" />
-            AgriConnect
-          </Link>
-          <div className="space-x-4 hidden md:flex">
-            <Link href="/" className="text-black hover:text-green-300">
-              Home
+    <PageTransition variant="fade">
+      <div className="min-h-screen bg-gradient-to-b from-emerald-50 via-white to-white">
+        <header className="border-b border-emerald-100 bg-white/80 backdrop-blur">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4">
+            <Link href="/" className="flex items-center gap-3" aria-label="AgriConnect home">
+              <AnimatedLeafLogo size="sm" />
+              <span className="text-xl font-semibold tracking-tight text-slate-900">AgriConnect</span>
             </Link>
-          </div>
-          <button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X /> : <Menu />}
-          </button>
-        </nav>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-green-800 text-white shadow-lg absolute top-16 left-0 right-0 p-4"
-          >
-            <div className="flex flex-col space-y-4">
-              <Link href="/" className="hover:text-green-300">
-                Home
+            <div className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+              <Link href="/crop-recommendation" className="transition-colors hover:text-emerald-700">
+                Crop recommendation
               </Link>
+              <Link href="/community-forum" className="transition-colors hover:text-emerald-700">
+                Community
+              </Link>
+              <Link href="/government-schemes" className="text-emerald-700">
+                Schemes
+              </Link>
+              <Link href="/weather" className="transition-colors hover:text-emerald-700">
+                Weather
+              </Link>
+              <Button variant="outline" asChild className="border-emerald-200 text-emerald-800 hover:bg-emerald-50">
+                <Link href="/">Back to main</Link>
+              </Button>
             </div>
-          </motion.div>
-        )}
-      </header>
+          </nav>
+        </header>
 
-      {/* Main Content */}
-      <main className="container mx-auto px-4 py-12 flex-grow">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <motion.h1
-            variants={itemVariants}
-            className="text-4xl font-bold mb-8 text-green-800 text-center"
+        <main className="mx-auto max-w-6xl px-4 py-12">
+          <motion.section
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="rounded-3xl border border-emerald-100 bg-white/85 p-8 shadow-sm backdrop-blur"
           >
-            Government Schemes
-          </motion.h1>
+            <div className="grid gap-8 lg:grid-cols-[1.2fr,0.8fr]">
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.4em] text-emerald-600">Government Schemes</p>
+                <h1 className="mt-4 text-4xl font-semibold text-slate-900">
+                  Decode funding, insurance, and relief without the paperwork chaos.
+                </h1>
+                <p className="mt-4 max-w-2xl text-base text-slate-600">
+                  We keep live dossiers on national and state programmes so you can shortlist benefits, understand eligibility, and file with confidence.
+                </p>
+                <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-green-100 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
+                  <Sparkles className="h-4 w-4" /> Updated every Monday with policy changes
+                </div>
+              </div>
+              <Card className="border-slate-100 bg-white/90">
+                <CardHeader>
+                  <CardTitle className="text-lg text-slate-900">Coverage snapshot</CardTitle>
+                  <p className="text-sm text-slate-500">Smart shortlist for your farm profile</p>
+                </CardHeader>
+                <CardContent className="grid gap-4 sm:grid-cols-3">
+                  {metrics.map((metric) => (
+                    <div key={metric.label} className="rounded-2xl border border-slate-100 bg-slate-50/80 p-4">
+                      <p className="text-2xl font-semibold text-slate-900">{metric.value}</p>
+                      <p className="text-xs text-slate-500">{metric.detail}</p>
+                    </div>
+                  ))}
+                </CardContent>
+              </Card>
+            </div>
+          </motion.section>
 
-          <p className="mb-12 text-lg text-center text-gray-700">
-            Government schemes are crucial as they provide financial assistance,
-            training, and resources to farmers. These initiatives support the
-            agricultural community in improving productivity, sustainability, and
-            access to better opportunities. By taking advantage of these schemes,
-            farmers can enhance their livelihoods and contribute to national food security.
-          </p>
+          <section className="mt-10 space-y-6">
+            <div className="flex flex-wrap items-center gap-4 rounded-2xl border border-slate-200 bg-white/80 p-3 text-sm font-medium text-slate-600">
+              <button
+                onClick={() => setActiveTab("national")}
+                className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                  activeTab === "national" ? "bg-emerald-600 text-white" : "bg-white text-slate-700"
+                }`}
+              >
+                National programmes
+              </button>
+              <button
+                onClick={() => setActiveTab("state")}
+                className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
+                  activeTab === "state" ? "bg-emerald-600 text-white" : "bg-white text-slate-700"
+                }`}
+              >
+                State incentives
+              </button>
+              {activeTab === "state" && (
+                <label className="ml-auto flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-slate-500">
+                  State
+                  <select
+                    value={selectedState}
+                    onChange={(event) => setSelectedState(event.target.value)}
+                    className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700"
+                  >
+                    {stateNames.map((stateName) => (
+                      <option key={stateName} value={stateName}>
+                        {stateName}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              )}
+            </div>
 
-          <Card className="shadow-xl max-w-4xl mx-auto mb-8 border rounded-lg">
-            <CardHeader>
-              <CardTitle className="text-2xl text-green-800">Agricultural Schemes and Subsidies</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <Tabs defaultValue="national" className="w-full">
-                <TabsList className="mb-6 flex justify-center space-x-8">
-                  <TabsTrigger
-                    value="national"
-                    className="text-lg px-6 py-2 border-b-2 border-transparent hover:border-green-800 transition duration-300 ease-in-out"
-                  >
-                    National Schemes
-                  </TabsTrigger>
-                  <TabsTrigger
-                    value="state"
-                    className="text-lg px-6 py-2 border-b-2 border-transparent hover:border-green-800 transition duration-300 ease-in-out"
-                  >
-                    State Schemes
-                  </TabsTrigger>
-                </TabsList>
+            <div className="grid gap-6 md:grid-cols-2">
+              {loading && (
+                <div className="rounded-3xl border border-slate-100 bg-white/90 p-8 text-slate-500">
+                  Syncing programmes...
+                </div>
+              )}
 
-                {/* National Schemes */}
-                <TabsContent
-                  value="national"
-                  className="transition-all duration-300 ease-in-out"
-                >
-                  <motion.ul
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    className="space-y-6"
-                  >
-                    {national.map((scheme, index) => (
-                      <motion.li
-                        key={index}
-                        variants={itemVariants}
-                        className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
-                      >
-                        <h3 className="text-lg font-semibold text-green-700">{scheme.name}</h3>
-                        <p className="text-gray-600">{scheme.description}</p>
-                        <p className="mt-2 text-sm text-gray-500">Objective: {scheme.objective}</p>
-                        <p className="mt-2 text-sm text-gray-500">Details: {scheme.details}</p>
-                        <p className="mt-2 text-sm text-gray-500">Funding: {scheme.funding}</p>
-                        <p className="mt-2 text-sm text-gray-500">Eligibility: {scheme.eligibility}</p>
-                        <div className="mt-4 flex justify-between">
+              {!loading && activeTab === "national" &&
+                (nationalSchemes.length ? nationalSchemes : Array.from({ length: 3 }, () => ({ name: "", description: "", apply_link: "#" } as Scheme)))
+                  .map((scheme, index) => (
+                    <Card key={`${scheme.name}-${index}`} className="border-slate-100 bg-white/90">
+                      <CardHeader>
+                        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-500">National</p>
+                        <CardTitle className="text-xl text-slate-900">{scheme.name || "Loading"}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-sm text-slate-600">{scheme.description || "Preparing summary..."}</p>
+                        {scheme.eligibility && (
+                          <p className="mt-4 rounded-2xl bg-emerald-50/80 px-4 py-2 text-xs font-medium text-emerald-700">
+                            Eligibility: {scheme.eligibility}
+                          </p>
+                        )}
+                        <Button
+                          variant="ghost"
+                          className="mt-6 inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800"
+                          asChild
+                        >
                           <Link
-                            href={scheme.apply_link}
+                            href={scheme.apply_link || "#"}
                             target="_blank"
                             rel="noopener noreferrer"
-                            prefetch={false}
-                            onClick={() => handleSchemeApply(scheme.name, scheme.apply_link, "national", { objective: scheme.objective })}
-                            className="text-green-600 hover:underline"
+                            onClick={() => handleSchemeApply(scheme, "national")}
                           >
-                            Apply Now
+                            View guidelines <ArrowUpRight className="h-4 w-4" />
                           </Link>
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  ))}
+
+              {!loading && activeTab === "state" && (selectedStateSchemes.length ? selectedStateSchemes : [])
+                .map((scheme) => (
+                  <Card key={scheme.name} className="border-slate-100 bg-white/90">
+                    <CardHeader>
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-500">{selectedState}</p>
+                          <CardTitle className="text-xl text-slate-900">{scheme.name}</CardTitle>
                         </div>
-                      </motion.li>
-                    ))}
-                  </motion.ul>
-                </TabsContent>
-
-                {/* State Schemes */}
-                <TabsContent
-                  value="state"
-                  className="transition-all duration-300 ease-in-out"
-                >
-                  <Select onValueChange={setSelectedState}>
-                    <SelectTrigger className="w-full mb-4 p-2 border border-gray-300 rounded-md shadow-md">
-                      <SelectValue placeholder="Select your state" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {Object.keys(stateSchemes).map((stateName) => (
-                        <SelectItem key={stateName} value={stateName}>
-                          {stateName}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-
-                  {selectedState && (
-                    <motion.ul
-                      variants={containerVariants}
-                      initial="hidden"
-                      animate="visible"
-                      className="space-y-6"
-                    >
-                      {stateSchemes[selectedState]?.map((scheme, index) => (
-                        <motion.li
-                          key={index}
-                          variants={itemVariants}
-                          className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition duration-300 ease-in-out"
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-slate-600">{scheme.description}</p>
+                      {scheme.eligibility && (
+                        <p className="mt-4 text-xs font-medium text-slate-500">Eligibility: {scheme.eligibility}</p>
+                      )}
+                      <Button
+                        variant="ghost"
+                        className="mt-6 inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800"
+                        asChild
+                      >
+                        <Link
+                          href={scheme.apply_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => handleSchemeApply(scheme, "state")}
                         >
-                          <h3 className="text-lg font-semibold text-green-700">{scheme.name}</h3>
-                          <p className="text-gray-600">{scheme.description}</p>
-                          <p className="mt-2 text-sm text-gray-500">Eligibility: {scheme.eligibility}</p>
-                          <div className="mt-4 flex justify-between">
-                            <Link
-                              href={scheme.apply_link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              prefetch={false}
-                              onClick={() => handleSchemeApply(scheme.name, scheme.apply_link, "state")}
-                              className="text-green-600 hover:underline"
-                            >
-                              Apply Now
-                            </Link>
-                          </div>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
-                  )}
-                </TabsContent>
-              </Tabs>
-            </CardContent>
-          </Card>
+                          Open portal <ArrowUpRight className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </CardContent>
+                  </Card>
+                ))}
 
-          <div className="mt-8 text-center">
-            <Link href="/" className="text-green-600 hover:underline">
-              ← Back to Home
-            </Link>
-          </div>
-        </motion.div>
-      </main>
+              {!loading && activeTab === "state" && !selectedStateSchemes.length && (
+                <Card className="border-dashed border-slate-200 bg-white/80">
+                  <CardContent className="p-8 text-sm text-slate-500">
+                    Pick a state to reveal targeted incentives.
+                  </CardContent>
+                </Card>
+              )}
+            </div>
+          </section>
 
-      {/* Footer */}
-      <Footer />
-    </div>
+          <section className="mt-12 rounded-3xl border border-slate-100 bg-white/95 p-6">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+              <div>
+                <h3 className="text-2xl font-semibold text-slate-900">Need help filing?</h3>
+                <p className="mt-2 text-sm text-slate-500">
+                  Book a guided session and we will walk you through onboarding, document prep, and submission tracking.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <Button className="bg-emerald-600 text-white hover:bg-emerald-700">
+                  Request advisor call
+                </Button>
+                <Button variant="outline" className="border-slate-200 text-slate-700">
+                  Download scheme checklist
+                </Button>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        <Footer />
+      </div>
+    </PageTransition>
   );
 }

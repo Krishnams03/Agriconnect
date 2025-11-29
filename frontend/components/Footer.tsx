@@ -24,7 +24,7 @@ const Footer = () => {
     {
       title: "Solutions",
       links: [
-        { label: "Disease Detection", href: "/disease-detection" },
+        { label: "Plant Disease Detection", href: "/plant-disease-detection" },
         { label: "Growth Analytics", href: "/growth-factors" },
         { label: "Marketplace", href: "/marketplace" },
         { label: "Schemes", href: "/government-schemes" },

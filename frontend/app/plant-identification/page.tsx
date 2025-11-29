@@ -1,1 +1,1 @@
-export { default } from "../disease-detection/page";
+export { default } from "../plant-disease-detection/page";

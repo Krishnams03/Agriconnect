@@ -15,5 +15,11 @@ export function middleware(request: Request) {
 }
 
 export const config = {
-  matcher: ['/features/*', '/disease-detection', '/growth-factors', '/marketplace'],
+  matcher: [
+    '/features/*',
+    '/disease-detection',
+    '/plant-disease-detection',
+    '/growth-factors',
+    '/marketplace',
+  ],
 };

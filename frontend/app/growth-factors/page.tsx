@@ -132,8 +132,8 @@ export default function GrowthFactorsPage() {
             className="md:hidden bg-green-800 text-white shadow-lg absolute top-16 left-0 right-0 p-4"
           >
             <div className="flex flex-col space-y-4">
-              <Link href="/disease-detection" className="hover:text-green-200 transition-colors">
-                Disease Detection
+              <Link href="/plant-disease-detection" className="hover:text-green-200 transition-colors">
+                Plant Disease Detection
               </Link>
               <Link href="/marketplace" className="hover:text-green-200 transition-colors">
                 Marketplace
